@@ -11,6 +11,16 @@ module org.example.cobra_te {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
+    // Requerimientos para la base de datos
+    requires java.sql;
+
     opens org.example.cobra_te to javafx.fxml;
+
     exports org.example.cobra_te;
+
+    // Exportar paquetes de base de datos
+    exports org.example.cobra_te.database;
+    exports org.example.cobra_te.models;
+    exports org.example.cobra_te.dao;
+    exports org.example.cobra_te.examples;
 }
