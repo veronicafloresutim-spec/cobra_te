@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cobra_te.controllers.POSController">
+   <top>
+      <VBox spacing="10.0" style="-fx-background-color: white;">
+         <children>
+            <Label text="💰 Punto de Venta" textFill="#8B4513">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <Label text="Categoría:" textFill="#555555">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbCategorias" prefWidth="200.0" promptText="Seleccionar categoría" />
+                  
+                  <Label text="Buscar:" textFill="#555555">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtBuscarProducto" prefWidth="250.0" promptText="Buscar producto..." />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+      </VBox>
+   </top>
+   
+   <center>
+      <HBox spacing="10.0">
+         <children>
+            <!-- Panel de Productos -->
+            <VBox prefWidth="650.0" spacing="10.0">
+               <children>
+                  <Label text="📦 Productos Disponibles" textFill="#333333">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  
+                  <ScrollPane fitToWidth="true" prefHeight="500.0" style="-fx-background-color: white; -fx-border-color: #dddddd; -fx-border-radius: 5;">
+                     <content>
+                        <VBox fx:id="panelProductos" spacing="10.0">
+                           <children>
+                              <GridPane fx:id="gridProductos" hgap="10.0" vgap="10.0">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+            
+            <!-- Panel del Carrito -->
+            <VBox prefWidth="500.0" spacing="10.0" style="-fx-background-color: #f8f8f8; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-padding: 15;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label text="🛒 Carrito de Compras" textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="Items:" textFill="#666666">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCantidadItems" text="0" textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  
+                  <TableView fx:id="tableCarrito" prefHeight="350.0">
+                     <columns>
+                        <TableColumn fx:id="colProducto" prefWidth="200.0" text="Producto" />
+                        <TableColumn fx:id="colCantidad" prefWidth="80.0" text="Cant." />
+                        <TableColumn fx:id="colPrecio" prefWidth="80.0" text="Precio" />
+                        <TableColumn fx:id="colSubtotal" prefWidth="100.0" text="Subtotal" />
+                     </columns>
+                  </TableView>
+                  
+                  <Separator />
+                  
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <children>
+                        <Label text="TOTAL:" textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTotal" text="$0.00" textFill="#8B4513">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  
+                  <HBox alignment="CENTER" spacing="15.0">
+                     <children>
+                        <Button fx:id="btnLimpiarCarrito" mnemonicParsing="false" onAction="#handleLimpiarCarrito" prefWidth="120.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 5;" text="🗑️ Limpiar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnProcesarVenta" disable="true" mnemonicParsing="false" onAction="#handleProcesarVenta" prefWidth="150.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5;" text="💳 Procesar Venta">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  
+                  <Label text="💡 Haga doble clic en un item para eliminarlo" textFill="#888888" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </center>
+</BorderPane>

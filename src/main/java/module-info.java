@@ -15,6 +15,8 @@ module org.example.cobra_te {
     requires java.sql;
 
     opens org.example.cobra_te to javafx.fxml;
+    opens org.example.cobra_te.controllers to javafx.fxml;
+    opens org.example.cobra_te.models to javafx.base;
 
     exports org.example.cobra_te;
 
@@ -23,4 +25,6 @@ module org.example.cobra_te {
     exports org.example.cobra_te.models;
     exports org.example.cobra_te.dao;
     exports org.example.cobra_te.examples;
+    exports org.example.cobra_te.controllers;
+    exports org.example.cobra_te.utils;
 }
