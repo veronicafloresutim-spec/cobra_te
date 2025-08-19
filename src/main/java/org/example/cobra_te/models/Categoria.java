@@ -12,8 +12,15 @@ public class Categoria {
     public Categoria() {
     }
 
-    // Constructor con parámetros
+    // Constructor con parámetros (sin ID)
     public Categoria(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+    // Constructor con parámetros (con ID)
+    public Categoria(Integer idCategoria, String nombre, String descripcion) {
+        this.idCategoria = idCategoria;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
