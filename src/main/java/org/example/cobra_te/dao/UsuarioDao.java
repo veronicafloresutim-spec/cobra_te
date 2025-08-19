@@ -2,6 +2,7 @@ package org.example.cobra_te.dao;
 
 import org.example.cobra_te.database.DatabaseConnection;
 import org.example.cobra_te.models.Usuario;
+import org.example.cobra_te.utils.PasswordUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,7 +28,8 @@ public class UsuarioDao implements CrudDao<Usuario> {
                 PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, usuario.getRol());
-            stmt.setString(2, usuario.getContrasena());
+            // Hash de la contraseña antes de guardarla
+            stmt.setString(2, PasswordUtils.hashPassword(usuario.getContrasena()));
             stmt.setString(3, usuario.getNombres());
             stmt.setString(4, usuario.getApellidoPaterno());
             stmt.setString(5, usuario.getApellidoMaterno());
@@ -99,7 +101,8 @@ public class UsuarioDao implements CrudDao<Usuario> {
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, usuario.getRol());
-            stmt.setString(2, usuario.getContrasena());
+            // Hash de la contraseña antes de actualizarla
+            stmt.setString(2, PasswordUtils.hashPassword(usuario.getContrasena()));
             stmt.setString(3, usuario.getNombres());
             stmt.setString(4, usuario.getApellidoPaterno());
             stmt.setString(5, usuario.getApellidoMaterno());
@@ -156,17 +159,20 @@ public class UsuarioDao implements CrudDao<Usuario> {
      * Autentica un usuario con correo y contraseña
      */
     public Usuario authenticate(String correo, String contrasena) {
-        String sql = "SELECT * FROM usuario WHERE correo = ? AND contrasena = ?";
+        String sql = "SELECT * FROM usuario WHERE correo = ?";
 
         try (Connection conn = dbConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, correo);
-            stmt.setString(2, contrasena);
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    return mapResultSetToUsuario(rs);
+                    String hashedPassword = rs.getString("contrasena");
+                    // Verificar la contraseña usando el hash
+                    if (PasswordUtils.verifyPassword(contrasena, hashedPassword)) {
+                        return mapResultSetToUsuario(rs);
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -196,6 +202,52 @@ public class UsuarioDao implements CrudDao<Usuario> {
             System.err.println("Error al buscar usuarios por rol: " + e.getMessage());
         }
         return usuarios;
+    }
+
+    /**
+     * Verifica si un correo ya está registrado
+     */
+    public boolean existsByCorreo(String correo) {
+        String sql = "SELECT COUNT(*) FROM usuario WHERE correo = ?";
+
+        try (Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, correo);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al verificar existencia de correo: " + e.getMessage());
+        }
+        return false;
+    }
+
+    /**
+     * Registra un nuevo usuario (específico para registro de cajeros)
+     */
+    public boolean registerCajero(String nombres, String apellidoPaterno, String apellidoMaterno,
+            String correo, String telefono, String sexo, String contrasena) {
+
+        // Verificar que el correo no exista
+        if (existsByCorreo(correo)) {
+            return false;
+        }
+
+        Usuario nuevoCajero = new Usuario();
+        nuevoCajero.setRol("cajero");
+        nuevoCajero.setNombres(nombres);
+        nuevoCajero.setApellidoPaterno(apellidoPaterno);
+        nuevoCajero.setApellidoMaterno(apellidoMaterno);
+        nuevoCajero.setCorreo(correo);
+        nuevoCajero.setTelefono(telefono);
+        nuevoCajero.setSexo(sexo);
+        nuevoCajero.setContrasena(contrasena); // Se hasheará automáticamente en el insert
+
+        return insert(nuevoCajero) != null;
     }
 
     /**

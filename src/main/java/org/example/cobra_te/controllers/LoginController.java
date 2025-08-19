@@ -24,6 +24,8 @@ public class LoginController {
     @FXML
     private Button btnLogin;
     @FXML
+    private Button btnRegistro;
+    @FXML
     private Label lblError;
     @FXML
     private ProgressIndicator progressIndicator;
@@ -87,6 +89,25 @@ public class LoginController {
     @FXML
     private void handleCancel() {
         System.exit(0);
+    }
+
+    @FXML
+    private void handleRegistro() {
+        try {
+            // Cargar la pantalla de registro
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/org/example/cobra_te/views/registro-view.fxml"));
+            Parent root = loader.load();
+
+            // Obtener el stage actual y cambiar la escena
+            Stage stage = (Stage) btnRegistro.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Cobra Te - Registro de Cajero");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showError("Error al cargar la pantalla de registro: " + e.getMessage());
+        }
     }
 
     private void showError(String message) {

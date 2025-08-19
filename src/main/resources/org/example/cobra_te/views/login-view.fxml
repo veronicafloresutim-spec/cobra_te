@@ -115,6 +115,25 @@
                   </Label>
                </children>
             </VBox>
+
+            <!-- Sección de registro -->
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="¿No tienes cuenta?" textFill="#666666">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#handleRegistro" prefWidth="200.0" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-background-radius: 5;" text="Registrar Nuevo Cajero">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
