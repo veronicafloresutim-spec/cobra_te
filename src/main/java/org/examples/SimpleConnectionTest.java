@@ -1,6 +1,6 @@
-package org.example.cobra_te.examples;
+package org.examples;
 
-import org.example.cobra_te.database.DatabaseConnection;
+import org.database.DatabaseConnection;
 
 /**
  * Ejemplo simple para probar la conexión a la base de datos

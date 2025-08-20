@@ -1,8 +1,8 @@
-package org.example.cobra_te.dao;
+package org.dao;
 
-import org.example.cobra_te.database.DatabaseConnection;
-import org.example.cobra_te.models.Producto;
-import org.example.cobra_te.models.Categoria;
+import org.database.DatabaseConnection;
+import org.models.Producto;
+import org.models.Categoria;
 
 import java.math.BigDecimal;
 import java.sql.*;

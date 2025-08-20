@@ -1,4 +1,4 @@
-package org.example.cobra_te.controllers;
+package org.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,9 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import org.example.cobra_te.dao.CategoriaDao;
-import org.example.cobra_te.models.Categoria;
-import org.example.cobra_te.utils.SessionManager;
+import org.dao.CategoriaDao;
+import org.models.Categoria;
+import org.utils.SessionManager;
 
 import java.util.List;
 

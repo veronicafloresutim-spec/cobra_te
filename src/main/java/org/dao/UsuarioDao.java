@@ -1,8 +1,8 @@
-package org.example.cobra_te.dao;
+package org.dao;
 
-import org.example.cobra_te.database.DatabaseConnection;
-import org.example.cobra_te.models.Usuario;
-import org.example.cobra_te.utils.PasswordUtils;
+import org.database.DatabaseConnection;
+import org.models.Usuario;
+import org.utils.PasswordUtils;
 
 import java.sql.*;
 import java.util.ArrayList;

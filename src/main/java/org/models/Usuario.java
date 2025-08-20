@@ -1,4 +1,4 @@
-package org.example.cobra_te.models;
+package org.models;
 
 /**
  * Clase modelo para la entidad Usuario

@@ -1,4 +1,4 @@
-package org.example.cobra_te.dao;
+package org.dao;
 
 import java.util.List;
 

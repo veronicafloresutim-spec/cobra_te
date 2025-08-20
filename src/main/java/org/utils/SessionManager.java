@@ -1,6 +1,6 @@
-package org.example.cobra_te.utils;
+package org.utils;
 
-import org.example.cobra_te.models.Usuario;
+import org.models.Usuario;
 
 /**
  * Gestiona la sesión del usuario actual

@@ -1,6 +1,6 @@
-package org.example.cobra_te.examples;
+package org.examples;
 
-import org.example.cobra_te.utils.PasswordUtils;
+import org.utils.PasswordUtils;
 
 /**
  * Clase para probar las funcionalidades de hashing de contraseñas

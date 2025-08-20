@@ -1,4 +1,4 @@
-package org.example.cobra_te.database;
+package org.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

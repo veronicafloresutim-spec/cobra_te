@@ -1,4 +1,4 @@
-package org.example.cobra_te.controllers;
+package org.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,9 +7,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import org.example.cobra_te.dao.UsuarioDao;
-import org.example.cobra_te.models.Usuario;
-import org.example.cobra_te.utils.SessionManager;
+import org.dao.UsuarioDao;
+import org.models.Usuario;
+import org.utils.SessionManager;
 
 import java.util.List;
 import java.util.Optional;

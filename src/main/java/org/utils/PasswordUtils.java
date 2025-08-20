@@ -1,4 +1,4 @@
-package org.example.cobra_te.utils;
+package org.utils;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package org.example.cobra_te.controllers;
+package org.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,9 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.example.cobra_te.dao.UsuarioDao;
-import org.example.cobra_te.models.Usuario;
-import org.example.cobra_te.utils.SessionManager;
+import org.dao.UsuarioDao;
+import org.models.Usuario;
+import org.utils.SessionManager;
 
 import java.io.IOException;
 

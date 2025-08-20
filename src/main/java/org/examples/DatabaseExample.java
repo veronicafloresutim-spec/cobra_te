@@ -1,9 +1,9 @@
-package org.example.cobra_te.examples;
+package org.examples;
 
-import org.example.cobra_te.dao.*;
-import org.example.cobra_te.database.DatabaseConnection;
-import org.example.cobra_te.database.DatabaseUtils;
-import org.example.cobra_te.models.*;
+import org.dao.*;
+import org.database.DatabaseConnection;
+import org.database.DatabaseUtils;
+import org.models.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

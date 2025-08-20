@@ -1,4 +1,4 @@
-package org.example.cobra_te.controllers;
+package org.controllers;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.example.cobra_te.utils.SessionManager;
+import org.utils.SessionManager;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

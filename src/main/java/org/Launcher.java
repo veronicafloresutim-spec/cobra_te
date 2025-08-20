@@ -1,4 +1,4 @@
-package org.example.cobra_te;
+package org;
 
 import javafx.application.Application;
 

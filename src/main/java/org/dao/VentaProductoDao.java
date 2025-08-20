@@ -1,7 +1,7 @@
-package org.example.cobra_te.dao;
+package org.dao;
 
-import org.example.cobra_te.database.DatabaseConnection;
-import org.example.cobra_te.models.VentaProducto;
+import org.database.DatabaseConnection;
+import org.models.VentaProducto;
 
 import java.sql.*;
 import java.util.ArrayList;

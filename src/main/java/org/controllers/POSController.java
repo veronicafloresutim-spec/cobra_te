@@ -1,4 +1,4 @@
-package org.example.cobra_te.controllers;
+package org.controllers;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -10,15 +10,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import org.example.cobra_te.dao.CategoriaDao;
-import org.example.cobra_te.dao.ProductoDao;
-import org.example.cobra_te.dao.VentaDao;
-import org.example.cobra_te.dao.VentaProductoDao;
-import org.example.cobra_te.models.Categoria;
-import org.example.cobra_te.models.Producto;
-import org.example.cobra_te.models.Venta;
-import org.example.cobra_te.models.VentaProducto;
-import org.example.cobra_te.utils.SessionManager;
+import org.dao.CategoriaDao;
+import org.dao.ProductoDao;
+import org.dao.VentaDao;
+import org.dao.VentaProductoDao;
+import org.models.Categoria;
+import org.models.Producto;
+import org.models.Venta;
+import org.models.VentaProducto;
+import org.utils.SessionManager;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
