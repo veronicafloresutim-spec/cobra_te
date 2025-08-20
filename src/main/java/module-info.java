@@ -1,4 +1,4 @@
-module org.example.cobra_te {
+module cobra.te {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
