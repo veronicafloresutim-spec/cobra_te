@@ -219,12 +219,17 @@
                   <!-- Botones -->
                   <HBox alignment="CENTER" spacing="15">
                      <children>
-                        <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#handleCancelar" prefWidth="120.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5;" text="Cancelar">
+                        <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#handleVolver" prefWidth="130.0" style="-fx-background-color: #8B4513; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="← Volver al Login">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#handleCancelar" prefWidth="100.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Cancelar">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#handleRegistrar" prefWidth="120.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5;" text="Registrar">
+                        <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#handleRegistrar" prefWidth="120.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="✓ Registrar">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

@@ -34,6 +34,8 @@ public class RegistroController {
     @FXML
     private PasswordField txtConfirmarContrasena;
     @FXML
+    private Button btnVolver;
+    @FXML
     private Button btnRegistrar;
     @FXML
     private Button btnCancelar;
@@ -225,6 +227,22 @@ public class RegistroController {
             Parent root = loader.load();
 
             Stage stage = (Stage) btnCancelar.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Cobra Te - Inicio de Sesión");
+
+        } catch (IOException e) {
+            showErrorAlert("Error", ErrorMessages.getScreenLoadError("login"));
+        }
+    }
+
+    @FXML
+    private void handleVolver() {
+        try {
+            // Cargar la pantalla de login
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/cobra_te/views/login-view.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) btnVolver.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Cobra Te - Inicio de Sesión");
 
