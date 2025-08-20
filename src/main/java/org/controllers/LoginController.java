@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import org.dao.UsuarioDao;
 import org.models.Usuario;
 import org.utils.SessionManager;
+import org.utils.ErrorMessages;
 
 import java.io.IOException;
 
@@ -44,7 +45,7 @@ public class LoginController {
         String password = txtPassword.getText();
 
         if (email.isEmpty() || password.isEmpty()) {
-            showError("Por favor, complete todos los campos");
+            showError(ErrorMessages.getEmptyFieldsError());
             return;
         }
 
@@ -73,14 +74,14 @@ public class LoginController {
                         Stage currentStage = (Stage) btnLogin.getScene().getWindow();
                         currentStage.close();
                     } else {
-                        showError("Credenciales incorrectas");
+                        showError(ErrorMessages.getAuthenticationError());
                     }
                 });
             } catch (Exception e) {
                 javafx.application.Platform.runLater(() -> {
                     progressIndicator.setVisible(false);
                     btnLogin.setDisable(false);
-                    showError("Error de conexión: " + e.getMessage());
+                    showError(ErrorMessages.getDatabaseConnectionError(e.getMessage()));
                 });
             }
         }).start();
@@ -106,7 +107,7 @@ public class LoginController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            showError("Error al cargar la pantalla de registro: " + e.getMessage());
+            showError(ErrorMessages.getScreenLoadError("registro"));
         }
     }
 
@@ -127,7 +128,7 @@ public class LoginController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-            showError("Error al abrir la ventana principal");
+            showError(ErrorMessages.getScreenLoadError("principal"));
         }
     }
 }

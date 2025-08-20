@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.dao.UsuarioDao;
 import org.utils.PasswordUtils;
+import org.utils.ErrorMessages;
 
 import java.io.IOException;
 
@@ -160,11 +161,11 @@ public class RegistroController {
                 handleCancelar();
             } else {
                 showErrorAlert("Error de registro",
-                        "No se pudo registrar el usuario. El correo ya podría estar en uso.");
+                        ErrorMessages.getRegistrationError("correo electrónico (puede estar en uso)"));
             }
 
         } catch (Exception e) {
-            showErrorAlert("Error", "Ocurrió un error durante el registro: " + e.getMessage());
+            showErrorAlert("Error", ErrorMessages.getDatabaseConnectionError(e.getMessage()));
         } finally {
             progressIndicator.setVisible(false);
             btnRegistrar.setDisable(false);
@@ -173,33 +174,34 @@ public class RegistroController {
 
     private boolean validateForm() {
         StringBuilder errors = new StringBuilder();
+        errors.append("📝 Por favor corrige los siguientes campos:\n\n");
 
         // Validar campos requeridos
         if (txtNombres.getText().trim().isEmpty()) {
-            errors.append("• El nombre es requerido\n");
+            errors.append("• Nombre es obligatorio\n");
         }
 
         if (txtApellidoPaterno.getText().trim().isEmpty()) {
-            errors.append("• El apellido paterno es requerido\n");
+            errors.append("• Apellido paterno es obligatorio\n");
         }
 
         if (txtCorreo.getText().trim().isEmpty()) {
-            errors.append("• El correo es requerido\n");
+            errors.append("• Correo electrónico es obligatorio\n");
         } else if (!isValidEmail(txtCorreo.getText().trim())) {
-            errors.append("• El formato del correo es inválido\n");
+            errors.append("• Formato de correo inválido (ej: usuario@dominio.com)\n");
         } else if (usuarioDao.existsByCorreo(txtCorreo.getText().trim())) {
-            errors.append("• Este correo ya está registrado\n");
+            errors.append("• Este correo ya está registrado en el sistema\n");
         }
 
         if (cmbSexo.getValue() == null) {
-            errors.append("• Debe seleccionar el sexo\n");
+            errors.append("• Selecciona el sexo\n");
         }
 
         // Validar contraseña
         String password = txtContrasena.getText();
         String passwordError = PasswordUtils.getPasswordValidationMessage(password);
         if (!passwordError.isEmpty()) {
-            errors.append("• ").append(passwordError).append("\n");
+            errors.append("• Contraseña: ").append(passwordError).append("\n");
         }
 
         // Validar confirmación de contraseña
@@ -207,8 +209,8 @@ public class RegistroController {
             errors.append("• Las contraseñas no coinciden\n");
         }
 
-        if (errors.length() > 0) {
-            showErrorAlert("Errores de validación", errors.toString());
+        if (errors.length() > 40) { // Más que solo el header
+            showErrorAlert("❌ Formulario incompleto", errors.toString());
             return false;
         }
 
@@ -227,7 +229,7 @@ public class RegistroController {
             stage.setTitle("Cobra Te - Inicio de Sesión");
 
         } catch (IOException e) {
-            showErrorAlert("Error", "No se pudo cargar la pantalla de login: " + e.getMessage());
+            showErrorAlert("Error", ErrorMessages.getScreenLoadError("login"));
         }
     }
 

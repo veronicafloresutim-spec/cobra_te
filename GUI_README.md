@@ -183,7 +183,7 @@ private void loadView(String fxmlPath, String title) {
 
 ### 1. Inicio
 ```
-HelloApplication → LoginController → Autenticación → MainController
+MainApplication → LoginController → Autenticación → MainController
 ```
 
 ### 2. Navegación
@@ -282,6 +282,6 @@ mvn clean compile
 mvn javafx:run
 ```
 
-O ejecutar directamente la clase `HelloApplication` desde el IDE.
+O ejecutar directamente la clase `MainApplication` desde el IDE.
 
 La aplicación iniciará automáticamente en la pantalla de login, y podrás usar las credenciales de demostración para acceder al sistema.
