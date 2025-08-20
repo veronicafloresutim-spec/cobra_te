@@ -116,22 +116,37 @@
                </children>
             </VBox>
 
+            <!-- Separador visual -->
+            <Separator opacity="0.3" style="-fx-background-color: #cccccc;">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+            </Separator>
+
             <!-- Sección de registro -->
-            <VBox alignment="CENTER" spacing="10.0">
+            <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);">
                <children>
-                  <Label text="¿No tienes cuenta?" textFill="#666666">
+                  <Label text="¿No tienes cuenta?" textFill="#333333">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Registra tu cuenta de cajero" textFill="#666666">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#handleRegistro" prefWidth="200.0" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-background-radius: 5;" text="Registrar Nuevo Cajero">
+                  <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#handleRegistro" prefWidth="180.0" style="-fx-background-color: #d2691e; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Crear Cuenta">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
                </children>
+               <padding>
+                  <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+               </padding>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="15.0" />
                </VBox.margin>
             </VBox>
          </children>
