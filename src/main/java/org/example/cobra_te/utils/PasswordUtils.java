@@ -91,4 +91,19 @@ public class PasswordUtils {
 
         return ""; // Válida
     }
+
+    /**
+     * Verifica si una cadena parece ser un hash SHA-256
+     * 
+     * @param password La cadena a verificar
+     * @return true si parece ser un hash SHA-256, false si no
+     */
+    public static boolean isHashed(String password) {
+        if (password == null) {
+            return false;
+        }
+
+        // Un hash SHA-256 tiene exactamente 64 caracteres hexadecimales
+        return password.length() == 64 && password.matches("^[a-fA-F0-9]+$");
+    }
 }

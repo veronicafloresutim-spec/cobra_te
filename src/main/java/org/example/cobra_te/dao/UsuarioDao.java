@@ -22,7 +22,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
         String sql = "INSERT INTO usuario (rol, contrasena, nombres, apellidoPaterno, " +
                 "apellidoMaterno, correo, telefono, sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, usuario.getRol());
             stmt.setString(2, PasswordUtils.hashPassword(usuario.getContrasena()));
@@ -54,7 +54,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
     public Usuario findById(Integer id) {
         String sql = "SELECT * FROM usuario WHERE idUsuario = ?";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
 
@@ -74,8 +74,8 @@ public class UsuarioDao implements CrudDao<Usuario> {
         List<Usuario> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuario ORDER BY apellidoPaterno, apellidoMaterno, nombres";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 usuarios.add(mapResultSetToUsuario(rs));
@@ -92,7 +92,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
         String sql = "UPDATE usuario SET rol = ?, contrasena = ?, nombres = ?, apellidoPaterno = ?, " +
                 "apellidoMaterno = ?, correo = ?, telefono = ?, sexo = ? WHERE idUsuario = ?";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, usuario.getRol());
 
@@ -120,7 +120,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
     public boolean delete(Integer id) {
         String sql = "DELETE FROM usuario WHERE idUsuario = ?";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
             return stmt.executeUpdate() > 0;
@@ -132,7 +132,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
     public Usuario findByEmail(String correo) {
         String sql = "SELECT * FROM usuario WHERE correo = ?";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, correo);
 
@@ -150,7 +150,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
     public Usuario authenticate(String correo, String contrasena) {
         String sql = "SELECT * FROM usuario WHERE correo = ?";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, correo);
 
@@ -172,7 +172,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
         List<Usuario> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuario WHERE rol = ? ORDER BY apellidoPaterno, apellidoMaterno, nombres";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, rol);
 
@@ -190,7 +190,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
     public boolean existsByCorreo(String correo) {
         String sql = "SELECT COUNT(*) FROM usuario WHERE correo = ?";
         try (Connection conn = dbConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, correo);
 
@@ -207,7 +207,7 @@ public class UsuarioDao implements CrudDao<Usuario> {
 
     // Nuevo: permite registrar usuario con cualquier rol
     public boolean registerUsuario(String rol, String nombres, String apellidoPaterno, String apellidoMaterno,
-                                  String correo, String telefono, String sexo, String contrasena) {
+            String correo, String telefono, String sexo, String contrasena) {
         if (existsByCorreo(correo)) {
             return false;
         }
@@ -241,9 +241,33 @@ public class UsuarioDao implements CrudDao<Usuario> {
     // Validaciones de campos obligatorios
     private void validarUsuario(Usuario usuario) {
         if (usuario.getRol() == null || usuario.getContrasena() == null || usuario.getNombres() == null ||
-            usuario.getApellidoPaterno() == null || usuario.getApellidoMaterno() == null ||
-            usuario.getCorreo() == null || usuario.getTelefono() == null || usuario.getSexo() == null) {
+                usuario.getApellidoPaterno() == null || usuario.getApellidoMaterno() == null ||
+                usuario.getCorreo() == null || usuario.getTelefono() == null || usuario.getSexo() == null) {
             throw new IllegalArgumentException("Todos los campos son obligatorios para Usuario.");
         }
+    }
+
+    /**
+     * Registra un nuevo usuario (específico para registro de cajeros)
+     */
+    public boolean registerCajero(String nombres, String apellidoPaterno, String apellidoMaterno,
+            String correo, String telefono, String sexo, String contrasena) {
+
+        // Verificar que el correo no exista
+        if (existsByCorreo(correo)) {
+            return false;
+        }
+
+        Usuario nuevoCajero = new Usuario();
+        nuevoCajero.setRol("cajero");
+        nuevoCajero.setNombres(nombres);
+        nuevoCajero.setApellidoPaterno(apellidoPaterno);
+        nuevoCajero.setApellidoMaterno(apellidoMaterno);
+        nuevoCajero.setCorreo(correo);
+        nuevoCajero.setTelefono(telefono);
+        nuevoCajero.setSexo(sexo);
+        nuevoCajero.setContrasena(contrasena); // Se hasheará automáticamente en el insert
+
+        return insert(nuevoCajero) != null;
     }
 }
