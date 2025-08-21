@@ -52,8 +52,7 @@ public class RegistroController {
         usuarioDao = new UsuarioDao();
 
         // Configurar ComboBox de sexo
-        cmbSexo.getItems().addAll("M", "F");
-        cmbSexo.getSelectionModel().selectFirst();
+        cmbSexo.getItems().addAll("Masculino", "Femenino", "Otro");
 
         // Ocultar indicador de progreso inicialmente
         progressIndicator.setVisible(false);
@@ -223,7 +222,7 @@ public class RegistroController {
     private void handleCancelar() {
         try {
             // Cargar la pantalla de login
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/cobra_te/views/login-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/login-view.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) btnCancelar.getScene().getWindow();
@@ -239,7 +238,7 @@ public class RegistroController {
     private void handleVolver() {
         try {
             // Cargar la pantalla de login
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/cobra_te/views/login-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/login-view.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) btnVolver.getScene().getWindow();

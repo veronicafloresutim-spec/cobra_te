@@ -24,10 +24,10 @@ public class MainApplication extends Application {
 
         // Cargar pantalla de login
         FXMLLoader fxmlLoader = new FXMLLoader(
-                MainApplication.class.getResource("/org/example/cobra_te/views/login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 500);
+                MainApplication.class.getResource("/views/login-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 700, 800);
         stage.setTitle("Cobra Te - Inicio de Sesión");
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
     }

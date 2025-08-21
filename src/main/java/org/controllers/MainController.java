@@ -95,7 +95,7 @@ public class MainController {
             showAlert("Acceso Denegado", "Solo los administradores pueden gestionar usuarios");
             return;
         }
-        loadView("/org/example/cobra_te/views/usuarios-view.fxml", "Gestión de Usuarios");
+        loadView("/views/usuarios-view.fxml", "Gestión de Usuarios");
     }
 
     @FXML
@@ -104,7 +104,7 @@ public class MainController {
             showAlert("Acceso Denegado", "Solo los administradores pueden gestionar categorías");
             return;
         }
-        loadView("/org/example/cobra_te/views/categorias-view.fxml", "Gestión de Categorías");
+        loadView("/views/categorias-view.fxml", "Gestión de Categorías");
     }
 
     @FXML
@@ -113,7 +113,7 @@ public class MainController {
             showAlert("Acceso Denegado", "Solo los administradores pueden gestionar productos");
             return;
         }
-        loadView("/org/example/cobra_te/views/productos-view.fxml", "Gestión de Productos");
+        loadView("/views/productos-view.fxml", "Gestión de Productos");
     }
 
     @FXML
@@ -122,7 +122,7 @@ public class MainController {
             showAlert("Acceso Denegado", "Solo los administradores pueden ver reportes");
             return;
         }
-        loadView("/org/example/cobra_te/views/reportes-view.fxml", "Reportes y Estadísticas");
+        loadView("/views/reportes-view.fxml", "Reportes y Estadísticas");
     }
 
     @FXML
@@ -157,7 +157,7 @@ public class MainController {
     }
 
     private void loadPOSView() {
-        loadView("/org/example/cobra_te/views/pos-view.fxml", "Punto de Venta");
+        loadView("/views/pos-view.fxml", "Punto de Venta");
     }
 
     private void loadView(String fxmlPath, String title) {
@@ -188,7 +188,7 @@ public class MainController {
 
     private void openLoginWindow() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/cobra_te/views/login-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/login-view.fxml"));
             Parent root = loader.load();
 
             Stage stage = new Stage();

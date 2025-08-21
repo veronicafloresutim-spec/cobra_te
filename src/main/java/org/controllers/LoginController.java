@@ -97,7 +97,7 @@ public class LoginController {
         try {
             // Cargar la pantalla de registro
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/org/example/cobra_te/views/registro-view.fxml"));
+                    getClass().getResource("/views/registro-view.fxml"));
             Parent root = loader.load();
 
             // Obtener el stage actual y cambiar la escena
@@ -118,7 +118,7 @@ public class LoginController {
 
     private void openMainWindow() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/cobra_te/views/main-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/main-view.fxml"));
             Parent root = loader.load();
 
             Stage stage = new Stage();
