@@ -18,7 +18,7 @@ public class DatabaseConnection {
     // Configuración por defecto
     private String url = "jdbc:mariadb://localhost:3306/cobra_te";
     private String username = "root";
-    private String password = "";
+    private String password = "1234"; // Cambiar valor por defecto
 
     private DatabaseConnection() {
         loadConfiguration();
@@ -51,9 +51,18 @@ public class DatabaseConnection {
                 url = prop.getProperty("database.url", url);
                 username = prop.getProperty("database.username", username);
                 password = prop.getProperty("database.password", password);
+
+                // Debug: verificar que se cargó la configuración
+                System.out.println("Configuración cargada:");
+                System.out.println("URL: " + url);
+                System.out.println("Username: " + username);
+                System.out.println("Password: " + (password.isEmpty() ? "[VACÍA]" : "[CONFIGURADA]"));
+            } else {
+                System.err.println("❌ No se encontró el archivo " + CONFIG_FILE);
             }
         } catch (IOException e) {
-            System.out.println("No se pudo cargar el archivo de configuración, usando valores por defecto");
+            System.err.println("❌ Error al cargar configuración: " + e.getMessage());
+            System.out.println("Usando valores por defecto");
         }
     }
 

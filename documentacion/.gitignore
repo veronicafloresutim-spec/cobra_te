@@ -1,0 +1,31 @@
+# Archivos generados por LaTeX
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+
+# Archivos de backup de editores
+*~
+*.bak
+*.swp
+*.tmp
+
+# Archivos específicos de SO
+.DS_Store
+Thumbs.db
+
+# Mantener los PDFs compilados (comentar si no se desea versionar)
+# *.pdf

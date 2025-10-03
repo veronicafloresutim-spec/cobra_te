@@ -1,0 +1,571 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geomet3 de octubre 2025 & 1.5 & Verónica Flores & Actualización de layout con logotipo oficial Logo.png \\
+\hline
+3 de octubre 2025 & 1.6 & Verónica Flores & Mejoras de layout: firmas centradas y formato de tablas optimizado \\
+\hline
+\end{longtable>
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{enumitem}
+
+% Configuración de página
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+\setlength{\headheight}{30pt}
+
+% Definición de colores corporativos
+\definecolor{cobrablue}{RGB}{103,80,164}
+\definecolor{cobraorange}{RGB}{255,107,53}
+\definecolor{cobragreen}{RGB}{76,175,80}
+\definecolor{cobragray}{RGB}{73,69,79}
+
+% Configuración de encabezados y pies de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=20pt]{Logo.png}}
+\fancyhead[C]{\textcolor{cobrablue}{\textbf{COBRA TE - Sistema POS Integral}}}
+\fancyhead[R]{\textcolor{cobragray}{\textbf{Especificación de Requerimientos}}}
+\fancyfoot[C]{\textcolor{cobragray}{Página \thepage}}
+\fancyfoot[R]{\textcolor{cobragray}{\today}}
+
+% Configuración de enlaces
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cobrablue,
+    filecolor=cobrablue,
+    urlcolor=cobrablue,
+}
+
+% Configuración de listas
+\setlist[enumerate]{leftmargin=*}
+\setlist[itemize]{leftmargin=*}
+
+\begin{document}
+
+% Portada
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    % Logotipo principal
+    \includegraphics[width=4cm]{Logo.png}
+    
+    \vspace{1cm}
+    {\color{cobrablue}\Huge\textbf{COBRA TE}}
+    
+    \vspace{0.5cm}
+    {\color{cobraorange}\Large Sistema de Punto de Venta Integral}
+    
+    \vspace{2cm}
+    {\color{cobragray}\LARGE\textbf{ESPECIFICACIÓN DE REQUERIMIENTOS}}
+    {\color{cobragray}\large\\ Software Requirements Specification (SRS)}
+    
+    \vspace{1cm}
+    {\color{cobragray}\large Versión 1.6}
+    
+    \vspace{2cm}
+    \begin{tabular}{|p{4cm}|p{8cm}|}
+        \hline
+        \rowcolor{cobrablue!20}
+        \textbf{Proyecto} & Sistema POS Cobra Te - Plataforma Multiplataforma \\
+        \hline
+        \textbf{Cliente} & Establecimiento Cobra Te \\
+        \hline
+        \textbf{Responsable} & Verónica Flores \\
+        \hline
+        \textbf{Fecha} & 3 de octubre de 2025 \\
+        \hline
+        \textbf{Estado} & En Desarrollo \\
+        \hline
+        \textbf{Clasificación} & Confidencial \\
+        \hline
+    \end{tabular}
+    
+    \vfill
+    {\color{cobragray}\large Documento Técnico - Uso Interno}
+    
+\end{titlepage}
+
+\newpage
+
+% Índice
+\tableofcontents
+\newpage
+
+% Histórico de Cambios
+\section*{Histórico de Cambios}
+\addcontentsline{toc}{section}{Histórico de Cambios}
+
+\begin{longtable}{|p{3cm}|p{2cm}|p{4cm}|p{6cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{Fecha de Revisión} & \textbf{Versión} & \textbf{Responsable(s)} & \textbf{Cambios} \\
+\hline
+\endhead
+3 de octubre 2025 & 1.0 & Verónica Flores & Creación inicial de especificación de requerimientos del sistema multiplataforma \\
+\hline
+3 de octubre 2025 & 1.1 & Verónica Flores & Actualización de stack tecnológico: React.js para web, React Native para móvil \\
+\hline
+3 de octubre 2025 & 1.2 & Verónica Flores & Actualización de firmas de aprobación del documento \\
+\hline
+3 de octubre 2025 & 1.3 & Verónica Flores & Adición de sección "Entregables del Producto" con tabla detallada \\
+\hline
+3 de octubre 2025 & 1.4 & Verónica Flores & Reestructuración de requerimientos funcionales y no funcionales en formato de tabla \\
+\hline
+3 de octubre 2025 & 1.5 & Verónica Flores & Actualización de layout con logotipo oficial Logo.png \\
+\hline
+\end{longtable>
+
+\newpage
+
+% 1. Introducción
+\section{Introducción}
+
+\subsection{Propósito}
+Este documento especifica los requerimientos funcionales y no funcionales para el Sistema POS Cobra Te, una solución integral multiplataforma que incluye aplicación de escritorio, portal web y aplicaciones móviles para la gestión completa de operaciones de punto de venta.
+
+\subsection{Alcance del Producto}
+El Sistema POS Cobra Te es una solución empresarial diseñada para:
+\begin{itemize}
+    \item Automatizar procesos de venta en establecimiento físico
+    \item Proporcionar herramientas de gestión administrativa remota
+    \item Facilitar la expansión al comercio electrónico
+    \item Ofrecer capacidades móviles para gestión y experiencia del cliente
+    \item Integrar análisis de datos y reportería avanzada
+\end{itemize}
+
+\subsection{Audiencia}
+Este documento está dirigido a:
+\begin{itemize}
+    \item Equipo de desarrollo de software
+    \item Arquitectos de sistemas
+    \item Responsables de QA y testing
+    \item Stakeholders del proyecto
+    \item Personal técnico de implementación
+\end{itemize}
+
+\subsection{Referencias}
+\begin{itemize}
+    \item Acta de Alcance del Proyecto Cobra Te v1.0
+    \item Estándares IEEE 830 para SRS
+    \item Documentación técnica JavaFX 21.0.6
+    \item Especificaciones Material Design 3
+    \item Normativas de seguridad PCI DSS (para futura implementación)
+\end{itemize}
+
+\section{Descripción General}
+
+\subsection{Perspectiva del Producto}
+El Sistema POS Cobra Te es un sistema independiente con arquitectura modular que permite escalamiento horizontal. Está diseñado para operar inicialmente como aplicación standalone y evolucionar hacia un ecosistema distribuido con componentes web y móviles.
+
+\subsection{Funciones Principales del Producto}
+
+\subsubsection{Aplicación de Escritorio (Fase 1)}
+\begin{itemize}
+    \item Procesamiento de transacciones de venta
+    \item Gestión de inventario y productos
+    \item Administración de usuarios y roles
+    \item Generación de reportes operativos
+    \item Sistema de seguridad y autenticación
+\end{itemize}
+
+\subsubsection{Portal Web (Fase 2)}
+\begin{itemize}
+    \item Dashboard ejecutivo con métricas en tiempo real
+    \item Gestión remota de configuraciones
+    \item E-commerce y catálogo en línea
+    \item API para integraciones externas
+    \item Sistema de backup y recuperación
+\end{itemize}
+
+\subsubsection{Aplicaciones Móviles (Fase 3)}
+\begin{itemize}
+    \item App de gestión para supervisores
+    \item App cliente con programa de lealtad
+    \item Notificaciones push en tiempo real
+    \item Sincronización offline/online
+\end{itemize}
+
+\subsection{Características de Usuario}
+
+\begin{longtable}{|p{3cm}|p{4cm}|p{8cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{Tipo de Usuario} & \textbf{Experiencia Técnica} & \textbf{Responsabilidades} \\
+\hline
+\endhead
+Administrador & Alta & Configuración del sistema, gestión de usuarios, análisis de reportes \\
+\hline
+Cajero & Básica-Media & Procesamiento de ventas, consulta de productos, operaciones básicas \\
+\hline
+Supervisor & Media & Monitoreo de operaciones, gestión de inventario, reportes departamentales \\
+\hline
+Cliente Final & Básica & Uso de app móvil, consulta de productos, programa de lealtad \\
+\hline
+\end{longtable}
+
+\subsection{Restricciones Generales}
+\begin{itemize}
+    \item Compatibilidad con Windows 10 o superior
+    \item Requerimiento de Java 17+ para aplicación de escritorio
+    \item Conectividad a internet para funcionalidades web y móviles
+    \item Base de datos relacional con soporte ACID
+    \item Cumplimiento de estándares de seguridad para datos financieros
+\end{itemize}
+
+\section{Requerimientos Específicos}
+
+\subsection{Requerimientos Funcionales}
+
+\begin{longtable}{|>{\centering}p{1.5cm}|p{3.5cm}|>{\centering}p{2cm}|p{6.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{N.° de requerimiento} & \textbf{Nombre del requerimiento} & \textbf{Prioridad} & \textbf{Descripción} & \textbf{Criterios de aceptación} \\
+\hline
+\endhead
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 1: APLICACIÓN DE ESCRITORIO}} \\
+\hline
+
+RF-001 & Sistema de Autenticación & Crítica & El sistema debe permitir autenticación segura mediante correo electrónico y contraseña, con validación de formato, verificación SHA-256, gestión de sesiones y control de intentos fallidos. & Login exitoso con credenciales válidas, bloqueo temporal tras 3 intentos fallidos, sesión activa por 8 horas, logout automático por inactividad \\
+\hline
+
+RF-002 & Gestión de Usuarios & Alta & Administración completa del ciclo de vida de usuarios incluyendo registro de cajeros, asignación de roles, modificación de información personal y restablecimiento de contraseñas. & CRUD completo de usuarios, validación de correo único, contraseñas de mínimo 6 caracteres alfanuméricos, teléfono de 10 dígitos, campos obligatorios completados \\
+\hline
+
+RF-003 & Sistema de Punto de Venta & Crítica & Procesamiento completo de transacciones incluyendo búsqueda de productos, gestión de carrito, cálculo automático de totales, aplicación de descuentos y generación de tickets. & Transacción completada en <2 segundos, cálculo correcto de impuestos, validación de stock, actualización inmediata de inventario, ticket impreso automáticamente \\
+\hline
+
+RF-004 & Gestión de Inventario & Alta & Administración completa del catálogo con CRUD de productos, gestión de categorías, control de stock, configuración de precios y alertas de stock mínimo. & Productos creados/editados correctamente, alertas cuando stock < mínimo configurado, historial de movimientos registrado, categorías administradas eficientemente \\
+\hline
+
+RF-005 & Sistema de Reportes & Media & Generación automática de reportes operativos por período, productos más vendidos, desempeño por cajero y análisis de ganancias con exportación a PDF/Excel. & Reportes generados en <30 segundos, datos exactos y actualizados, exportación exitosa a múltiples formatos, gráficas claras y legibles \\
+\hline
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 2: PORTAL WEB}} \\
+\hline
+
+RF-006 & Dashboard Ejecutivo & Alta & Panel de control web con métricas clave, gráficas en tiempo real, KPIs principales, estado de cajeros conectados y alertas del sistema. & Dashboard carga en <5 segundos, datos actualizados cada 30 segundos, gráficas interactivas, alertas visibles y funcionales, responsive en múltiples dispositivos \\
+\hline
+
+RF-007 & Administración Web & Media & Gestión remota de configuraciones globales, usuarios, productos, impuestos, descuentos y backup automático desde interfaz web React.js. & Configuraciones aplicadas inmediatamente, sincronización con app desktop, backup automático diario, interfaz intuitiva y responsive \\
+\hline
+
+RF-008 & E-commerce Integration & Baja & Plataforma de venta en línea con catálogo público, carrito de compras, checkout, integración con pasarelas de pago y sincronización con inventario físico. & Catálogo sincronizado con inventario, checkout funcional, pagos procesados correctamente, pedidos registrados en sistema principal \\
+\hline
+
+RF-009 & API RESTful & Media & Servicios web documentados con endpoints para productos, ventas, usuarios, reportes e inventario, autenticación JWT y rate limiting. & API responde en <1 segundo, documentación completa en Swagger, autenticación JWT funcional, rate limiting configurado adecuadamente \\
+\hline
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 3: APLICACIONES MÓVILES}} \\
+\hline
+
+RF-010 & App Gestión Móvil & Media & Aplicación React Native para supervisores con dashboard móvil, notificaciones push, reportes con gráficas y gestión básica de inventario. & App instalada en Android/iOS, notificaciones push funcionales, reportes visibles offline, sincronización automática cuando hay conexión \\
+\hline
+
+RF-011 & App Cliente & Baja & Aplicación para clientes finales con programa de lealtad, catálogo móvil, pedidos anticipados, notificaciones de ofertas e historial personalizado. & Registro de cliente exitoso, puntos acumulados correctamente, pedidos realizados desde app, notificaciones de ofertas recibidas \\
+\hline
+\end{longtable}
+
+\subsection{Requerimientos No Funcionales}
+
+\begin{longtable}{|>{\centering}p{1.5cm}|p{3.5cm}|>{\centering}p{2cm}|p{6.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{N.° de requerimiento} & \textbf{Nombre del requerimiento} & \textbf{Prioridad} & \textbf{Descripción} & \textbf{Criterios de aceptación} \\
+\hline
+\endhead
+
+RNF-001 & Performance del Sistema & Alta & Tiempos de respuesta optimizados para transacciones POS (<2 seg), carga de aplicación (<10 seg), consultas DB (<1 seg) y reportes (<30 seg). & Todas las métricas de tiempo cumplidas bajo carga normal, aplicación responde fluidamente, base de datos optimizada \\
+\hline
+
+RNF-002 & Escalabilidad & Media & Soporte para 10 terminales POS concurrentes, 1000 productos en catálogo, 50,000 transacciones anuales y 100 usuarios web simultáneos. & Sistema estable con carga máxima especificada, rendimiento mantenido al escalar, recursos del servidor optimizados \\
+\hline
+
+RNF-003 & Disponibilidad & Alta & Aplicación desktop 99.5\% uptime horario comercial, portal web 99.9\% uptime 24/7, recuperación ante fallos <15 min, backup diario automático. & Métricas de disponibilidad cumplidas, tiempo de recuperación verificado, backups realizados y probados diariamente \\
+\hline
+
+RNF-004 & Seguridad & Crítica & Encriptación SHA-256, conexiones HTTPS, autenticación JWT, logs de auditoría, control de acceso por roles y protección SQL injection. & Contraseñas encriptadas correctamente, tráfico web seguro, tokens JWT válidos, logs completos, acceso controlado por rol \\
+\hline
+
+RNF-005 & Usabilidad & Alta & Interfaz Material Design 3, aprendizaje <4 horas, navegación consistente, soporte múltiples resoluciones, accesibilidad WCAG 2.1 AA. & Interfaz intuitiva validada, capacitación exitosa en tiempo especificado, consistencia entre plataformas verificada \\
+\hline
+
+RNF-006 & Compatibilidad & Media & Windows 10/11 64-bit, Java 17+, navegadores modernos, Android 8.0+/iOS 12.0+, MariaDB 10.5+/MySQL 8.0+. & Aplicación funciona en todas las plataformas especificadas, compatibilidad verificada con versiones mínimas requeridas \\
+\hline
+\end{longtable}
+
+\section{Casos de Uso Principales}
+
+\subsection{CU-001: Procesamiento de Venta}
+\textbf{Actor Principal:} Cajero \\
+\textbf{Objetivo:} Completar una transacción de venta exitosamente \\
+\textbf{Precondiciones:} Cajero autenticado, productos disponibles \\
+
+\textbf{Flujo Principal:}
+\begin{enumerate}
+    \item Cajero escanea o busca producto
+    \item Sistema muestra información del producto
+    \item Cajero añade producto al carrito
+    \item Cajero repite pasos 1-3 para todos los productos
+    \item Cajero procede al pago
+    \item Sistema calcula total con impuestos
+    \item Cajero selecciona método de pago
+    \item Sistema procesa el pago
+    \item Sistema genera e imprime ticket
+    \item Sistema actualiza inventario
+\end{enumerate}
+
+\textbf{Flujos Alternativos:}
+\begin{itemize}
+    \item 2a. Producto no encontrado: Sistema muestra mensaje de error
+    \item 3a. Stock insuficiente: Sistema alerta y sugiere alternativas
+    \item 8a. Error en pago: Sistema cancela transacción y restaura carrito
+\end{itemize}
+
+\subsection{CU-002: Gestión de Inventario}
+\textbf{Actor Principal:} Administrador \\
+\textbf{Objetivo:} Mantener actualizado el catálogo de productos \\
+\textbf{Precondiciones:} Usuario con permisos de administrador \\
+
+\textbf{Flujo Principal:}
+\begin{enumerate}
+    \item Administrador accede al módulo de productos
+    \item Sistema muestra listado de productos
+    \item Administrador selecciona acción (crear, editar, eliminar)
+    \item Sistema presenta formulario correspondiente
+    \item Administrador ingresa/modifica información
+    \item Sistema valida datos ingresados
+    \item Sistema confirma cambios
+    \item Sistema actualiza base de datos
+    \item Sistema muestra confirmación de éxito
+\end{enumerate}
+
+\subsection{CU-003: Generación de Reportes}
+\textbf{Actor Principal:} Administrador/Supervisor \\
+\textbf{Objetivo:} Obtener información analítica del negocio \\
+\textbf{Precondiciones:} Datos de ventas disponibles \\
+
+\textbf{Flujo Principal:}
+\begin{enumerate}
+    \item Usuario accede al módulo de reportes
+    \item Sistema muestra tipos de reportes disponibles
+    \item Usuario selecciona tipo de reporte
+    \item Usuario especifica parámetros (fechas, filtros)
+    \item Sistema procesa solicitud
+    \item Sistema genera reporte con gráficas
+    \item Usuario visualiza reporte en pantalla
+    \item Usuario puede exportar a PDF/Excel
+\end{enumerate}
+
+\section{Interfaces Externas}
+
+\subsection{Interfaces de Usuario}
+\begin{itemize}
+    \item \textbf{Desktop}: JavaFX con Material Design 3, resolución mínima 1920x1080
+    \item \textbf{Web}: React.js responsive con componentes reutilizables
+    \item \textbf{Móvil}: React Native multiplataforma con UI consistente
+\end{itemize}
+
+\subsection{Interfaces de Hardware}
+\begin{itemize}
+    \item Lectores de códigos de barras USB/Bluetooth
+    \item Impresoras térmicas para tickets (ESC/POS)
+    \item Cajones de dinero automáticos
+    \item Terminales de pago POS (futura integración)
+\end{itemize}
+
+\subsection{Interfaces de Software}
+\begin{itemize}
+    \item Base de datos MariaDB/MySQL via JDBC
+    \item APIs REST para integración web/móvil
+    \item Servicios de notificaciones push (Firebase/APNS)
+    \item Pasarelas de pago (PayPal, Stripe, MercadoPago)
+    \item Servicios de backup cloud (Google Drive, Dropbox)
+\end{itemize}
+
+\section{Matriz de Trazabilidad}
+
+\begin{longtable}{|p{2cm}|p{6cm}|p{3cm}|p{4cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{Req. ID} & \textbf{Descripción} & \textbf{Prioridad} & \textbf{Caso de Uso} \\
+\hline
+\endhead
+RF-001 & Sistema de Autenticación & Alta & CU-001, CU-002, CU-003 \\
+\hline
+RF-002 & Gestión de Usuarios & Alta & CU-002 \\
+\hline
+RF-003 & Sistema POS & Crítica & CU-001 \\
+\hline
+RF-004 & Gestión Inventario & Alta & CU-002 \\
+\hline
+RF-005 & Sistema Reportes & Media & CU-003 \\
+\hline
+RF-006 & Dashboard Web & Alta & CU-003 \\
+\hline
+RF-007 & Admin Web & Media & CU-002 \\
+\hline
+RF-008 & E-commerce & Baja & CU-001 \\
+\hline
+RF-009 & API REST & Media & Todos \\
+\hline
+RF-010 & App Gestión & Media & CU-003 \\
+\hline
+RF-011 & App Cliente & Baja & CU-001 \\
+\hline
+\end{longtable}
+
+\section{Plan de Pruebas}
+
+\subsection{Estrategia de Testing}
+\begin{itemize}
+    \item \textbf{Pruebas Unitarias}: Cobertura mínima 80\% del código
+    \item \textbf{Pruebas de Integración}: Validación de módulos interconectados
+    \item \textbf{Pruebas de Sistema}: Validación end-to-end de casos de uso
+    \item \textbf{Pruebas de Aceptación}: Validación con usuarios finales
+    \item \textbf{Pruebas de Performance}: Carga y stress testing
+    \item \textbf{Pruebas de Seguridad}: Validación de vulnerabilidades
+\end{itemize}
+
+\subsection{Criterios de Aceptación}
+\begin{itemize}
+    \item Todos los requerimientos funcionales implementados y probados
+    \item Cumplimiento de métricas de performance establecidas
+    \item Zero defectos críticos en funcionalidades principales
+    \item Documentación técnica y de usuario completa
+    \item Capacitación exitosa del personal operativo
+\end{itemize}
+
+\section{Entregables del Producto}
+
+\begin{longtable}{|>{\centering}p{1cm}|p{4cm}|p{6cm}|>{\centering}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{No} & \textbf{Nombre del entregable} & \textbf{Descripción del entregable} & \textbf{Fecha de entrega/periodicidad} & \textbf{Medio (electrónico/impreso/web)} \\
+\hline
+\endhead
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 1: APLICACIÓN DE ESCRITORIO}} \\
+\hline
+
+1 & Aplicación POS Desktop & Sistema JavaFX con autenticación, POS, gestión de inventario, usuarios y reportes & Mes 3-4 & Electrónico / Instalador \\
+\hline
+
+2 & Base de Datos MariaDB & Esquema completo con tablas de usuarios, productos, categorías, ventas y configuración & Mes 2 & Electrónico / Scripts SQL \\
+\hline
+
+3 & Manual Técnico & Documentación de arquitectura, patrones de diseño, estructura de clases y APIs & Mes 4 & Electrónico / PDF \\
+\hline
+
+4 & Manual de Usuario & Guía operativa con flujos de trabajo, capturas de pantalla y resolución de problemas & Mes 4 & Electrónico / PDF \\
+\hline
+
+5 & Casos de Prueba & Suite completa de testing con casos unitarios, integración y aceptación & Mes 3-4 & Electrónico / Reportes \\
+\hline
+
+6 & Package de Instalación & Instaladores automáticos, dependencias y scripts de configuración inicial & Mes 4 & Electrónico / Ejecutables \\
+\hline
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 2: EXPANSIÓN WEB}} \\
+\hline
+
+7 & Portal Web React & Dashboard administrativo responsive con gestión remota y monitoreo en tiempo real & Mes 7-8 & Web / SPA \\
+\hline
+
+8 & API REST Documentada & Servicios web con endpoints para CRUD, autenticación JWT y sincronización & Mes 6-7 & Web / Swagger/OpenAPI \\
+\hline
+
+9 & Módulo E-commerce & Catálogo web, carrito de compras, checkout y sincronización con inventario físico & Mes 8-9 & Web / Plataforma \\
+\hline
+
+10 & Guías de Integración & Documentación para desarrolladores externos con ejemplos de código y SDKs & Mes 8 & Web / Portal docs \\
+\hline
+
+11 & Configuración SSL & Certificados digitales, configuración HTTPS y políticas de seguridad & Mes 8 & Electrónico / Config \\
+\hline
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 3: APLICACIONES MÓVILES}} \\
+\hline
+
+12 & App Gestión Mobile & React Native para supervisores con dashboard, alertas y gestión básica & Mes 12-14 & App Stores \\
+\hline
+
+13 & Push Notifications & Sistema de notificaciones en tiempo real con alertas personalizables & Mes 13 & Cloud Service \\
+\hline
+
+14 & Analytics Mobile & Dashboard móvil con métricas, gráficas interactivas y reportes offline & Mes 14 & App integrada \\
+\hline
+
+15 & App Cliente (Opcional) & Aplicación para clientes con programa de lealtad, pedidos y promociones & Mes 15-16 & App Stores \\
+\hline
+
+16 & Documentación Mobile & Guías de desarrollo, arquitectura React Native y procesos de publicación & Mes 14 & Electrónico / PDF \\
+\hline
+\end{longtable}
+
+\section{Consideraciones de Implementación}
+
+\subsection{Fases de Desarrollo}
+\textbf{Fase 1 (3-4 meses):}
+\begin{itemize}
+    \item Aplicación de escritorio completa
+    \item Base de datos y estructura inicial
+    \item Módulos POS, usuarios, productos, reportes básicos
+\end{itemize}
+
+\textbf{Fase 2 (4-6 meses):}
+\begin{itemize}
+    \item Portal web administrativo con React.js
+    \item API REST integrada con backend existente
+    \item Dashboard ejecutivo y e-commerce básico
+\end{itemize}
+
+\textbf{Fase 3 (6-8 meses):}
+\begin{itemize}
+    \item Aplicación React Native multiplataforma
+    \item Sistema de notificaciones push
+    \item Analytics avanzado y programa de lealtad
+\end{itemize}
+
+\subsection{Riesgos y Mitigación}
+\begin{itemize}
+    \item \textbf{Complejidad de integración}: Desarrollo incremental con APIs bien definidas
+    \item \textbf{Performance en crecimiento}: Arquitectura escalable desde el diseño
+    \item \textbf{Seguridad de datos}: Implementación de estándares desde Fase 1
+    \item \textbf{Adopción por usuarios}: Plan de capacitación y soporte continuo
+\end{itemize}
+
+\section{Conclusiones}
+
+El Sistema POS Cobra Te está diseñado como una solución integral y escalable que evolucionará desde una aplicación de escritorio robusta hasta un ecosistema digital completo. La especificación de requerimientos contempla todas las fases de crecimiento, asegurando que cada implementación agregue valor mientras prepara la base para futuras expansiones.
+
+La arquitectura modular y los estándares técnicos establecidos garantizan la interoperabilidad entre plataformas y facilitan el mantenimiento a largo plazo, posicionando a Cobra Te como una solución tecnológica competitiva en el mercado de sistemas POS.
+
+\vspace{2cm}
+
+\begin{center}
+\textbf{Aprobaciones}
+
+\vspace{1.5cm}
+
+\begin{tabular}{p{6cm}p{6cm}}
+\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
+\centering Mtra. Patricia Mendoza Crisóstomo & \centering Fecha \\
+\centering Supervisora Académica & \\[1cm]
+\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
+\centering Líder del Proyecto & \centering Fecha \\
+& \\
+\end{tabular}
+\end{center}
+
+\end{document}

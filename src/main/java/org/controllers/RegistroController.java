@@ -51,8 +51,8 @@ public class RegistroController {
     private void initialize() {
         usuarioDao = new UsuarioDao();
 
-        // Configurar ComboBox de sexo
-        cmbSexo.getItems().addAll("Masculino", "Femenino", "Otro");
+        // Configurar ComboBox de sexo (valores que coinciden con la BD)
+        cmbSexo.getItems().addAll("Masculino", "Femenino");
 
         // Ocultar indicador de progreso inicialmente
         progressIndicator.setVisible(false);
@@ -132,6 +132,18 @@ public class RegistroController {
         return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
     }
 
+    /**
+     * Mapea el valor del ComboBox al valor de la base de datos
+     */
+    private String mapSexoToDatabase(String sexoComboBox) {
+        if ("Masculino".equals(sexoComboBox)) {
+            return "H";
+        } else if ("Femenino".equals(sexoComboBox)) {
+            return "M";
+        }
+        return null; // Esto no debería pasar si la validación es correcta
+    }
+
     @FXML
     private void handleRegistrar() {
         if (!validateForm()) {
@@ -147,7 +159,8 @@ public class RegistroController {
             String apellidoMaterno = txtApellidoMaterno.getText().trim();
             String correo = txtCorreo.getText().trim();
             String telefono = txtTelefono.getText().trim();
-            String sexo = cmbSexo.getValue();
+            String sexoComboBox = cmbSexo.getValue();
+            String sexo = mapSexoToDatabase(sexoComboBox); // Mapear al valor de BD
             String contrasena = txtContrasena.getText();
 
             boolean registrado = usuarioDao.registerCajero(
@@ -177,6 +190,15 @@ public class RegistroController {
         StringBuilder errors = new StringBuilder();
         errors.append("📝 Por favor corrige los siguientes campos:\n\n");
 
+        // Debug temporal
+        System.out.println("=== DEBUG VALIDACIÓN ===");
+        System.out.println("Nombres: '" + txtNombres.getText() + "'");
+        System.out.println("Apellido Paterno: '" + txtApellidoPaterno.getText() + "'");
+        System.out.println("Correo: '" + txtCorreo.getText() + "'");
+        System.out.println("Teléfono: '" + txtTelefono.getText() + "'");
+        System.out.println("Sexo: " + cmbSexo.getValue());
+        System.out.println("========================");
+
         // Validar campos requeridos
         if (txtNombres.getText().trim().isEmpty()) {
             errors.append("• Nombre es obligatorio\n");
@@ -190,12 +212,19 @@ public class RegistroController {
             errors.append("• Correo electrónico es obligatorio\n");
         } else if (!isValidEmail(txtCorreo.getText().trim())) {
             errors.append("• Formato de correo inválido (ej: usuario@dominio.com)\n");
-        } else if (usuarioDao.existsByCorreo(txtCorreo.getText().trim())) {
-            errors.append("• Este correo ya está registrado en el sistema\n");
         }
 
         if (cmbSexo.getValue() == null) {
             errors.append("• Selecciona el sexo\n");
+        }
+
+        // Validar teléfono (debe tener exactamente 10 dígitos)
+        String telefono = txtTelefono.getText().trim();
+        if (telefono.isEmpty()) {
+            errors.append("• Teléfono es obligatorio\n");
+        } else if (!telefono.matches("\\d{10}")) {
+            errors.append("• Teléfono debe tener exactamente 10 dígitos (números solamente)\n");
+            System.out.println("DEBUG: Teléfono '" + telefono + "' no pasa validación \\d{10}");
         }
 
         // Validar contraseña
@@ -210,7 +239,26 @@ public class RegistroController {
             errors.append("• Las contraseñas no coinciden\n");
         }
 
-        if (errors.length() > 40) { // Más que solo el header
+        // Solo verificar correo en BD si no hay otros errores (temporalmente
+        // deshabilitado)
+        // TODO: Rehabilitar cuando la conexión BD esté estable
+        /*
+         * if (errors.length() <= 50 && !txtCorreo.getText().trim().isEmpty() &&
+         * isValidEmail(txtCorreo.getText().trim())) {
+         * try {
+         * if (usuarioDao.existsByCorreo(txtCorreo.getText().trim())) {
+         * errors.append("• Este correo ya está registrado en el sistema\n");
+         * }
+         * } catch (Exception e) {
+         * errors.
+         * append("• Error al verificar disponibilidad del correo (problema de conexión)\n"
+         * );
+         * System.err.println("Error en existsByCorreo: " + e.getMessage());
+         * }
+         * }
+         */
+
+        if (errors.length() > 50) { // Más que solo el header
             showErrorAlert("❌ Formulario incompleto", errors.toString());
             return false;
         }

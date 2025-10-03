@@ -1,0 +1,441 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+
+% Configuración de página
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+\setlength{\headheight}{30pt}
+
+% Definición de colores corporativos
+\definecolor{cobrablue}{RGB}{103,80,164}
+\definecolor{cobraorange}{RGB}{255,107,53}
+\definecolor{cobragreen}{RGB}{76,175,80}
+\definecolor{cobragray}{RGB}{73,69,79}
+
+% Configuración de encabezados y pies de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=20pt]{Logo.png}}
+\fancyhead[C]{\textcolor{cobrablue}{\textbf{COBRA TE - Sistema POS Integral}}}
+\fancyhead[R]{\textcolor{cobragray}{\textbf{Acta de Alcance}}}
+\fancyfoot[C]{\textcolor{cobragray}{Página \thepage}}
+\fancyfoot[R]{\textcolor{cobragray}{\today}}
+
+% Configuración de enlaces
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cobrablue,
+    filecolor=cobrablue,
+    urlcolor=cobrablue,
+}
+
+\begin{document}
+
+% Portada
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    % Logotipo principal
+    \includegraphics[width=4cm]{Logo.png}
+    
+    \vspace{1cm}
+    {\color{cobrablue}\Huge\textbf{COBRA TE}}
+    
+    \vspace{0.5cm}
+    {\color{cobraorange}\Large Sistema de Punto de Venta Integral}
+    
+    \vspace{2cm}
+    {\color{cobragray}\LARGE\textbf{ACTA DE ALCANCE}}
+    
+    \vspace{1cm}
+    {\color{cobragray}\large Versión 1.5}
+    
+    \vspace{2cm}
+    \begin{tabular}{|p{4cm}|p{8cm}|}
+        \hline
+        \rowcolor{cobrablue!20}
+        \textbf{Proyecto} & Sistema POS Cobra Te - Plataforma Multiplataforma \\
+        \hline
+        \textbf{Cliente} & Establecimiento Cobra Te \\
+        \hline
+        \textbf{Responsable} & Verónica Flores \\
+        \hline
+        \textbf{Fecha} & 3 de octubre de 2025 \\
+        \hline
+        \textbf{Estado} & Aprobado \\
+        \hline
+    \end{tabular}
+    
+    \vfill
+    {\color{cobragray}\large Documento Confidencial}
+    
+\end{titlepage}
+
+\newpage
+
+% Índice
+\tableofcontents
+\newpage
+
+% Histórico de Cambios
+\section*{Histórico de Cambios}
+\addcontentsline{toc}{section}{Histórico de Cambios}
+
+\begin{longtable}{|p{3cm}|p{2cm}|p{4cm}|p{6cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{Fecha de Revisión} & \textbf{Versión} & \textbf{Responsable(s)} & \textbf{Cambios} \\
+\hline
+\endhead
+3 de octubre 2025 & 1.0 & Verónica Flores & Creación inicial del documento de alcance del proyecto \\
+\hline
+3 de octubre 2025 & 1.1 & Verónica Flores & Actualización de tecnologías: React.js para web, React Native para móvil \\
+\hline
+3 de octubre 2025 & 1.2 & Verónica Flores & Actualización de firmas de aprobación del documento \\
+\hline
+3 de octubre 2025 & 1.3 & Verónica Flores & Reestructuración de entregables en formato de tabla detallada \\
+\hline
+3 de octubre 2025 & 1.4 & Verónica Flores & Actualización de layout con logotipo oficial Logo.png \\
+\hline
+3 de octubre 2025 & 1.5 & Verónica Flores & Mejoras de layout: firmas centradas y formato de tablas optimizado \\
+\hline
+\end{longtable>
+
+\newpage
+
+% 1. Introducción
+\section{Introducción}
+
+\subsection{Propósito del Documento}
+Este documento establece el alcance del proyecto "Cobra Te - Sistema POS Integral", definiendo los objetivos, entregables, limitaciones y criterios de éxito para el desarrollo de una solución tecnológica completa que abarca desde una aplicación de escritorio hasta implementaciones web y móviles.
+
+\subsection{Antecedentes}
+El establecimiento Cobra Te requiere modernizar sus procesos de venta mediante la implementación de un sistema de punto de venta (POS) que permita:
+\begin{itemize}
+    \item Gestión eficiente de transacciones de venta
+    \item Control de inventario en tiempo real
+    \item Administración de usuarios y roles
+    \item Generación de reportes y análisis de ventas
+    \item Escalabilidad hacia plataformas web y móviles
+\end{itemize}
+
+\section{Descripción del Proyecto}
+
+\subsection{Visión General}
+Cobra Te - Sistema POS Integral es una solución tecnológica multiplataforma diseñada para optimizar las operaciones comerciales del establecimiento, proporcionando herramientas robustas para la gestión de ventas, inventario y administración, con capacidad de expansión hacia el comercio electrónico y gestión móvil.
+
+\subsection{Objetivos del Proyecto}
+
+\subsubsection{Objetivo General}
+Desarrollar e implementar un sistema integral de punto de venta que automatice y optimice los procesos comerciales de Cobra Te, con arquitectura escalable para futuras expansiones web y móviles.
+
+\subsubsection{Objetivos Específicos}
+\begin{enumerate}
+    \item Crear una aplicación de escritorio JavaFX para operaciones POS principales
+    \item Implementar un sistema de gestión de usuarios con roles diferenciados
+    \item Desarrollar módulos de gestión de productos y categorías
+    \item Establecer un sistema de reportes y análisis de ventas
+    \item Diseñar una arquitectura backend preparada para expansión web
+    \item Planificar la implementación de interfaces web responsivas
+    \item Conceptualizar aplicaciones móviles para Android e iOS
+\end{enumerate}
+
+\section{Alcance del Proyecto}
+
+\subsection{Fase 1: Aplicación de Escritorio (Actual)}
+
+\subsubsection{Módulos Incluidos}
+\begin{itemize}
+    \item \textbf{Sistema de Autenticación}
+    \begin{itemize}
+        \item Login seguro con encriptación SHA-256
+        \item Gestión de sesiones de usuario
+        \item Recuperación de contraseñas
+    \end{itemize}
+    
+    \item \textbf{Gestión de Usuarios}
+    \begin{itemize}
+        \item Registro de cajeros y administradores
+        \item Asignación de roles y permisos
+        \item Gestión de información personal
+    \end{itemize}
+    
+    \item \textbf{Sistema de Punto de Venta}
+    \begin{itemize}
+        \item Interfaz de venta intuitiva
+        \item Cálculo automático de totales e impuestos
+        \item Múltiples métodos de pago
+        \item Generación de tickets de venta
+    \end{itemize}
+    
+    \item \textbf{Gestión de Inventario}
+    \begin{itemize}
+        \item Administración de productos
+        \item Gestión de categorías
+        \item Control de stock en tiempo real
+        \item Alertas de inventario bajo
+    \end{itemize}
+    
+    \item \textbf{Reportes y Análisis}
+    \begin{itemize}
+        \item Reportes de ventas diarias, semanales y mensuales
+        \item Análisis de productos más vendidos
+        \item Estadísticas de desempeño por cajero
+    \end{itemize}
+\end{itemize}
+
+\subsection{Fase 2: Expansión Web (Planificada)}
+
+\subsubsection{Componentes Web}
+\begin{itemize}
+    \item \textbf{Portal de Administración Web}
+    \begin{itemize}
+        \item Dashboard ejecutivo con métricas clave
+        \item Gestión remota de usuarios y productos
+        \item Configuración de parámetros del sistema
+        \item Backup y restauración de datos
+    \end{itemize}
+    
+    \item \textbf{E-commerce Integration}
+    \begin{itemize}
+        \item Catálogo de productos en línea
+        \item Carrito de compras y checkout
+        \item Integración con sistemas de pago digitales
+        \item Gestión de pedidos en línea
+    \end{itemize}
+    
+    \item \textbf{API RESTful}
+    \begin{itemize}
+        \item Servicios web para integración de terceros
+        \item Sincronización con sistemas externos
+        \item Webhooks para notificaciones en tiempo real
+    \end{itemize}
+\end{itemize}
+
+\subsection{Fase 3: Aplicaciones Móviles (Futuro)}
+
+\subsubsection{App Móvil para Gestores}
+\begin{itemize}
+    \item Monitoreo de ventas en tiempo real
+    \item Notificaciones push de alertas importantes
+    \item Gestión básica de inventario
+    \item Reportes móviles con gráficas interactivas
+\end{itemize}
+
+\subsubsection{App Cliente}
+\begin{itemize}
+    \item Programa de lealtad y puntos
+    \item Pedidos anticipados y reservas
+    \item Notificaciones de ofertas especiales
+    \item Historial de compras personalizado
+\end{itemize}
+
+\section{Entregables del Producto}
+
+\begin{longtable}{|>{\centering}p{1cm}|p{4cm}|p{6cm}|>{\centering}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{No} & \textbf{Nombre del entregable} & \textbf{Descripción del entregable} & \textbf{Fecha de entrega/periodicidad} & \textbf{Medio (electrónico/impreso/web)} \\
+\hline
+\endhead
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 1: APLICACIÓN DE ESCRITORIO}} \\
+\hline
+
+1 & Aplicación POS Desktop & Sistema JavaFX completamente funcional con módulos de venta, inventario, usuarios y reportes & Mes 3-4 & Electrónico / Instalador \\
+\hline
+
+2 & Base de Datos & MariaDB configurada con esquemas, datos de prueba y procedimientos almacenados & Mes 2 & Electrónico / Scripts SQL \\
+\hline
+
+3 & Manual de Usuario & Documentación completa para operadores del sistema POS con capturas de pantalla y flujos & Mes 4 & Electrónico / PDF \\
+\hline
+
+4 & Documentación Técnica & Arquitectura del sistema, diagramas UML, especificaciones de API y base de datos & Mes 4 & Electrónico / PDF \\
+\hline
+
+5 & Plan de Pruebas & Casos de prueba, scripts de testing y reportes de validación del sistema & Mes 3-4 & Electrónico / PDF \\
+\hline
+
+6 & Scripts de Instalación & Archivos de configuración automática, instaladores y guías de despliegue & Mes 4 & Electrónico / Ejecutables \\
+\hline
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 2: EXPANSIÓN WEB}} \\
+\hline
+
+7 & Portal Web React & Aplicación web responsive con dashboard administrativo y gestión remota & Mes 7-8 & Web / Aplicación en línea \\
+\hline
+
+8 & API REST & Servicios web documentados con endpoints para integración y sincronización & Mes 6-7 & Electrónico / Documentación \\
+\hline
+
+9 & Documentación API & Especificaciones técnicas, ejemplos de uso y guías de integración para desarrolladores & Mes 8 & Web / Portal de documentación \\
+\hline
+
+10 & E-commerce Integration & Módulo de ventas en línea integrado con inventario físico & Mes 8-9 & Web / Plataforma en línea \\
+\hline
+
+11 & Certificados SSL & Configuración de seguridad, certificados digitales y protocolos de encriptación & Mes 8 & Electrónico / Configuración \\
+\hline
+
+\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 3: APLICACIONES MÓVILES}} \\
+\hline
+
+12 & App React Native & Aplicación móvil multiplataforma para gestión y monitoreo & Mes 12-14 & Electrónico / Tiendas de apps \\
+\hline
+
+13 & Sistema de Notificaciones & Servicio de push notifications integrado con alertas del sistema & Mes 13 & Electrónico / Servicio cloud \\
+\hline
+
+14 & Analytics Dashboard & Panel de métricas móviles con reportes interactivos y KPIs en tiempo real & Mes 14 & Web / Aplicación móvil \\
+\hline
+
+15 & Guías de Publicación & Documentación para publicar en App Store y Google Play con procesos de aprobación & Mes 14 & Electrónico / PDF \\
+\hline
+
+16 & App Cliente (Opcional) & Aplicación para clientes finales con programa de lealtad y pedidos & Mes 15-16 & Electrónico / Tiendas de apps \\
+\hline
+\end{longtable}
+
+\section{Arquitectura Tecnológica}
+
+\subsection{Tecnologías Actuales}
+\begin{itemize}
+    \item \textbf{Frontend Desktop}: JavaFX 21.0.6 con Material Design 3
+    \item \textbf{Backend}: Java con arquitectura MVC
+    \item \textbf{Base de Datos}: MariaDB 12.0.2
+    \item \textbf{Seguridad}: Encriptación SHA-256 para contraseñas
+    \item \textbf{Gestión de Dependencias}: Maven
+\end{itemize}
+
+\subsection{Tecnologías Planificadas}
+\begin{itemize}
+    \item \textbf{Frontend Web}: React.js con arquitectura SPA
+    \item \textbf{Backend API}: Node.js o extensión del backend Java existente
+    \item \textbf{Móvil}: React Native (multiplataforma)
+    \item \textbf{Base de Datos}: MariaDB (consistencia con versión actual)
+    \item \textbf{Infraestructura Cloud}: Por definir según necesidades del proyecto
+    \item \textbf{Containerización}: Docker para desarrollo y despliegue
+\end{itemize}
+
+\section{Restricciones y Limitaciones}
+
+\subsection{Restricciones Técnicas}
+\begin{itemize}
+    \item La aplicación de escritorio debe funcionar en Windows 10+
+    \item Requerimiento mínimo de Java 17 o superior
+    \item Base de datos debe soportar transacciones ACID
+    \item Interfaz debe ser accesible y seguir estándares de usabilidad
+\end{itemize}
+
+\subsection{Restricciones de Negocio}
+\begin{itemize}
+    \item Presupuesto limitado para infraestructura cloud (Fase 2-3)
+    \item Tiempo de desarrollo escalonado por fases
+    \item Necesidad de mantener operaciones durante implementación
+    \item Capacitación del personal debe ser mínima
+\end{itemize}
+
+\subsection{Limitaciones Actuales}
+\begin{itemize}
+    \item Funcionalidad offline limitada (solo aplicación de escritorio)
+    \item Integración con sistemas externos pendiente
+    \item Escalabilidad horizontal no implementada
+    \item Análisis avanzado de datos en desarrollo futuro
+\end{itemize}
+
+\section{Criterios de Éxito}
+
+\subsection{Fase 1}
+\begin{itemize}
+    \item Sistema POS operativo al 100\% en un terminal
+    \item Reducción del 50\% en tiempo de procesamiento de ventas
+    \item Zero errores críticos en operaciones de venta
+    \item Capacitación completa del personal en menos de 4 horas
+    \item Generación automática de reportes diarios
+\end{itemize}
+
+\subsection{Fase 2}
+\begin{itemize}
+    \item Portal web accesible 24/7 con 99.9\% uptime
+    \item Integración exitosa con al menos 2 sistemas de pago
+    \item Reducción del 30\% en tiempo de gestión administrativa
+    \item API documentada y funcional para integraciones futuras
+\end{itemize}
+
+\subsection{Fase 3}
+\begin{itemize}
+    \item Aplicaciones móviles con calificación 4+ en tiendas
+    \item Adopción del 70\% de clientes en programa de lealtad
+    \item Incremento del 25\% en ventas a través de canal móvil
+    \item Notificaciones push con tasa de apertura >40\%
+\end{itemize}
+
+\section{Gestión de Riesgos}
+
+\subsection{Riesgos Técnicos}
+\begin{itemize}
+    \item \textbf{Corrupción de datos}: Implementación de backups automáticos diarios
+    \item \textbf{Fallos de conectividad}: Modo offline con sincronización posterior
+    \item \textbf{Incompatibilidad de versiones}: Versionado estricto y testing continuo
+\end{itemize}
+
+\subsection{Riesgos de Negocio}
+\begin{itemize}
+    \item \textbf{Resistencia al cambio}: Plan de capacitación gradual y soporte continuo
+    \item \textbf{Sobrecarga operativa}: Implementación por fases con periodos de adaptación
+    \item \textbf{Escalamiento de costos}: Arquitectura modular con crecimiento controlado
+\end{itemize}
+
+\section{Cronograma de Alto Nivel}
+
+\begin{longtable}{|p{3cm}|p{4cm}|p{8cm}|}
+\hline
+\rowcolor{cobrablue!20}
+\textbf{Fase} & \textbf{Duración} & \textbf{Entregables Principales} \\
+\hline
+\endhead
+Fase 1 & 3-4 meses & Aplicación de escritorio completa, base de datos, documentación \\
+\hline
+Fase 2 & 4-6 meses & Portal web React.js, API REST, integración e-commerce \\
+\hline
+Fase 3 & 6-8 meses & App React Native multiplataforma, notificaciones, analytics \\
+\hline
+\end{longtable}
+
+\section{Conclusiones}
+
+El proyecto Cobra Te - Sistema POS Integral representa una solución tecnológica escalable y robusta que evolucionará desde una aplicación de escritorio hasta un ecosistema digital completo. La arquitectura propuesta permite un crecimiento orgánico y controlado, asegurando que cada fase agregue valor tangible al negocio mientras prepara la base para futuras expansiones.
+
+La implementación por fases garantiza la continuidad operativa y permite la adaptación gradual del personal, minimizando riesgos mientras maximiza el retorno de inversión en cada etapa del proyecto.
+
+\vspace{2cm}
+
+\begin{center}
+\textbf{Aprobaciones}
+
+\vspace{1.5cm}
+
+\begin{tabular}{p{6cm}p{6cm}}
+\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
+\centering Mtra. Patricia Mendoza Crisóstomo & \centering Fecha \\
+\centering Supervisora Académica & \\[1cm]
+\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
+\centering Líder del Proyecto & \centering Fecha \\
+& \\
+\end{tabular}
+\end{center}
+
+\end{document}
