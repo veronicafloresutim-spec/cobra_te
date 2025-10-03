@@ -1,11 +1,7 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{geomet3 de octubre 2025 & 1.5 & Verónica Flores & Actualización de layout con logotipo oficial Logo.png \\
-\hline
-3 de octubre 2025 & 1.6 & Verónica Flores & Mejoras de layout: firmas centradas y formato de tablas optimizado \\
-\hline
-\end{longtable>
+\usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{longtable}
@@ -67,10 +63,12 @@
     
     \vspace{2cm}
     {\color{cobragray}\LARGE\textbf{ESPECIFICACIÓN DE REQUERIMIENTOS}}
-    {\color{cobragray}\large\\ Software Requirements Specification (SRS)}
+    
+    \vspace{0.3cm}
+    {\color{cobragray}\large Software Requirements Specification (SRS)}
     
     \vspace{1cm}
-    {\color{cobragray}\large Versión 1.6}
+    {\color{cobragray}\large Versión 1.7}
     
     \vspace{2cm}
     \begin{tabular}{|p{4cm}|p{8cm}|}
@@ -117,13 +115,17 @@
 \hline
 3 de octubre 2025 & 1.2 & Verónica Flores & Actualización de firmas de aprobación del documento \\
 \hline
-3 de octubre 2025 & 1.3 & Verónica Flores & Adición de sección "Entregables del Producto" con tabla detallada \\
+3 de octubre 2025 & 1.3 & Verónica Flores & Adición de sección ``Entregables del Producto'' con tabla detallada \\
 \hline
 3 de octubre 2025 & 1.4 & Verónica Flores & Reestructuración de requerimientos funcionales y no funcionales en formato de tabla \\
 \hline
 3 de octubre 2025 & 1.5 & Verónica Flores & Actualización de layout con logotipo oficial Logo.png \\
 \hline
-\end{longtable>
+3 de octubre 2025 & 1.6 & Verónica Flores & Mejoras de layout: firmas centradas y formato de tablas optimizado \\
+\hline
+3 de octubre 2025 & 1.7 & Verónica Flores & Eliminación de fechas de entrega y encabezados de fases \\
+\hline
+\end{longtable}
 
 \newpage
 
@@ -448,68 +450,59 @@ RF-011 & App Cliente & Baja & CU-001 \\
 
 \section{Entregables del Producto}
 
-\begin{longtable}{|>{\centering}p{1cm}|p{4cm}|p{6cm}|>{\centering}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\begin{longtable}{|>{\centering}p{1cm}|p{6cm}|p{8cm}|>{\centering\arraybackslash}p{3cm}|}
 \hline
 \rowcolor{cobrablue!20}
-\textbf{No} & \textbf{Nombre del entregable} & \textbf{Descripción del entregable} & \textbf{Fecha de entrega/periodicidad} & \textbf{Medio (electrónico/impreso/web)} \\
+\textbf{No} & \textbf{Nombre del entregable} & \textbf{Descripción del entregable} & \textbf{Medio (electrónico/impreso/web)} \\
 \hline
 \endhead
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 1: APLICACIÓN DE ESCRITORIO}} \\
+1 & Aplicación POS Desktop & Sistema JavaFX con autenticación, POS, gestión de inventario, usuarios y reportes & Electrónico / Instalador \\
 \hline
 
-1 & Aplicación POS Desktop & Sistema JavaFX con autenticación, POS, gestión de inventario, usuarios y reportes & Mes 3-4 & Electrónico / Instalador \\
+2 & Base de Datos MariaDB & Esquema completo con tablas de usuarios, productos, categorías, ventas y configuración & Electrónico / Scripts SQL \\
 \hline
 
-2 & Base de Datos MariaDB & Esquema completo con tablas de usuarios, productos, categorías, ventas y configuración & Mes 2 & Electrónico / Scripts SQL \\
+3 & Manual Técnico & Documentación de arquitectura, patrones de diseño, estructura de clases y APIs & Electrónico / PDF \\
 \hline
 
-3 & Manual Técnico & Documentación de arquitectura, patrones de diseño, estructura de clases y APIs & Mes 4 & Electrónico / PDF \\
+4 & Manual de Usuario & Guía operativa con flujos de trabajo, capturas de pantalla y resolución de problemas & Electrónico / PDF \\
 \hline
 
-4 & Manual de Usuario & Guía operativa con flujos de trabajo, capturas de pantalla y resolución de problemas & Mes 4 & Electrónico / PDF \\
+5 & Casos de Prueba & Suite completa de testing con casos unitarios, integración y aceptación & Electrónico / Reportes \\
 \hline
 
-5 & Casos de Prueba & Suite completa de testing con casos unitarios, integración y aceptación & Mes 3-4 & Electrónico / Reportes \\
+6 & Package de Instalación & Instaladores automáticos, dependencias y scripts de configuración inicial & Electrónico / Ejecutables \\
 \hline
 
-6 & Package de Instalación & Instaladores automáticos, dependencias y scripts de configuración inicial & Mes 4 & Electrónico / Ejecutables \\
+7 & Portal Web React & Dashboard administrativo responsive con gestión remota y monitoreo en tiempo real & Web / SPA \\
 \hline
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 2: EXPANSIÓN WEB}} \\
+8 & API REST Documentada & Servicios web con endpoints para CRUD, autenticación JWT y sincronización & Web / Swagger/OpenAPI \\
 \hline
 
-7 & Portal Web React & Dashboard administrativo responsive con gestión remota y monitoreo en tiempo real & Mes 7-8 & Web / SPA \\
+9 & Módulo E-commerce & Catálogo web, carrito de compras, checkout y sincronización con inventario físico & Web / Plataforma \\
 \hline
 
-8 & API REST Documentada & Servicios web con endpoints para CRUD, autenticación JWT y sincronización & Mes 6-7 & Web / Swagger/OpenAPI \\
+10 & Guías de Integración & Documentación para desarrolladores externos con ejemplos de código y SDKs & Web / Portal docs \\
 \hline
 
-9 & Módulo E-commerce & Catálogo web, carrito de compras, checkout y sincronización con inventario físico & Mes 8-9 & Web / Plataforma \\
+11 & Configuración SSL & Certificados digitales, configuración HTTPS y políticas de seguridad & Electrónico / Config \\
 \hline
 
-10 & Guías de Integración & Documentación para desarrolladores externos con ejemplos de código y SDKs & Mes 8 & Web / Portal docs \\
+12 & App Gestión Mobile & React Native para supervisores con dashboard, alertas y gestión básica & App Stores \\
 \hline
 
-11 & Configuración SSL & Certificados digitales, configuración HTTPS y políticas de seguridad & Mes 8 & Electrónico / Config \\
+13 & Push Notifications & Sistema de notificaciones en tiempo real con alertas personalizables & Cloud Service \\
 \hline
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 3: APLICACIONES MÓVILES}} \\
+14 & Analytics Mobile & Dashboard móvil con métricas, gráficas interactivas y reportes offline & App integrada \\
 \hline
 
-12 & App Gestión Mobile & React Native para supervisores con dashboard, alertas y gestión básica & Mes 12-14 & App Stores \\
+15 & App Cliente (Opcional) & Aplicación para clientes con programa de lealtad, pedidos y promociones & App Stores \\
 \hline
 
-13 & Push Notifications & Sistema de notificaciones en tiempo real con alertas personalizables & Mes 13 & Cloud Service \\
-\hline
-
-14 & Analytics Mobile & Dashboard móvil con métricas, gráficas interactivas y reportes offline & Mes 14 & App integrada \\
-\hline
-
-15 & App Cliente (Opcional) & Aplicación para clientes con programa de lealtad, pedidos y promociones & Mes 15-16 & App Stores \\
-\hline
-
-16 & Documentación Mobile & Guías de desarrollo, arquitectura React Native y procesos de publicación & Mes 14 & Electrónico / PDF \\
+16 & Documentación Mobile & Guías de desarrollo, arquitectura React Native y procesos de publicación & Electrónico / PDF \\
 \hline
 \end{longtable}
 
@@ -558,12 +551,12 @@ La arquitectura modular y los estándares técnicos establecidos garantizan la i
 
 \vspace{1.5cm}
 
-\begin{tabular}{p{6cm}p{6cm}}
-\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
-\centering Mtra. Patricia Mendoza Crisóstomo & \centering Fecha \\
-\centering Supervisora Académica & \\[1cm]
-\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
-\centering Líder del Proyecto & \centering Fecha \\
+\begin{tabular}{>{\centering}p{6cm}>{\centering\arraybackslash}p{6cm}}
+\rule{5cm}{0.4pt} & \rule{5cm}{0.4pt} \\[0.5cm]
+Mtra. Patricia Mendoza Crisóstomo & Fecha \\
+Supervisora Académica & \\[1cm]
+\rule{5cm}{0.4pt} & \rule{5cm}{0.4pt} \\[0.5cm]
+Líder del Proyecto & Fecha \\
 & \\
 \end{tabular}
 \end{center}

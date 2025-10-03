@@ -1,7 +1,11 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{geometry}
+\usepackag3 de octubre 2025 & 1.5 & Verónica Flores & Mejoras de layout: firmas centradas y formato de tablas optimizado \\
+\hline
+3 de octubre 2025 & 1.6 & Verónica Flores & Eliminación de fechas, criterios de éxito y encabezados de fases \\
+\hline
+\end{longtable}eometry}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{longtable}
@@ -60,7 +64,7 @@
     {\color{cobragray}\LARGE\textbf{ACTA DE ALCANCE}}
     
     \vspace{1cm}
-    {\color{cobragray}\large Versión 1.5}
+    {\color{cobragray}\large Versión 1.6}
     
     \vspace{2cm}
     \begin{tabular}{|p{4cm}|p{8cm}|}
@@ -119,7 +123,7 @@
 \section{Introducción}
 
 \subsection{Propósito del Documento}
-Este documento establece el alcance del proyecto "Cobra Te - Sistema POS Integral", definiendo los objetivos, entregables, limitaciones y criterios de éxito para el desarrollo de una solución tecnológica completa que abarca desde una aplicación de escritorio hasta implementaciones web y móviles.
+Este documento establece el alcance del proyecto ``Cobra Te - Sistema POS Integral'', definiendo los objetivos, entregables y limitaciones para el desarrollo de una solución tecnológica completa que abarca desde una aplicación de escritorio hasta implementaciones web y móviles.
 
 \subsection{Antecedentes}
 El establecimiento Cobra Te requiere modernizar sus procesos de venta mediante la implementación de un sistema de punto de venta (POS) que permita:
@@ -244,68 +248,59 @@ Desarrollar e implementar un sistema integral de punto de venta que automatice y
 
 \section{Entregables del Producto}
 
-\begin{longtable}{|>{\centering}p{1cm}|p{4cm}|p{6cm}|>{\centering}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\begin{longtable}{|>{\centering}p{1cm}|p{6cm}|p{8cm}|>{\centering\arraybackslash}p{3cm}|}
 \hline
 \rowcolor{cobrablue!20}
-\textbf{No} & \textbf{Nombre del entregable} & \textbf{Descripción del entregable} & \textbf{Fecha de entrega/periodicidad} & \textbf{Medio (electrónico/impreso/web)} \\
+\textbf{No} & \textbf{Nombre del entregable} & \textbf{Descripción del entregable} & \textbf{Medio (electrónico/impreso/web)} \\
 \hline
 \endhead
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 1: APLICACIÓN DE ESCRITORIO}} \\
+1 & Aplicación POS Desktop & Sistema JavaFX completamente funcional con módulos de venta, inventario, usuarios y reportes & Electrónico / Instalador \\
 \hline
 
-1 & Aplicación POS Desktop & Sistema JavaFX completamente funcional con módulos de venta, inventario, usuarios y reportes & Mes 3-4 & Electrónico / Instalador \\
+2 & Base de Datos & MariaDB configurada con esquemas, datos de prueba y procedimientos almacenados & Electrónico / Scripts SQL \\
 \hline
 
-2 & Base de Datos & MariaDB configurada con esquemas, datos de prueba y procedimientos almacenados & Mes 2 & Electrónico / Scripts SQL \\
+3 & Manual de Usuario & Documentación completa para operadores del sistema POS con capturas de pantalla y flujos & Electrónico / PDF \\
 \hline
 
-3 & Manual de Usuario & Documentación completa para operadores del sistema POS con capturas de pantalla y flujos & Mes 4 & Electrónico / PDF \\
+4 & Documentación Técnica & Arquitectura del sistema, diagramas UML, especificaciones de API y base de datos & Electrónico / PDF \\
 \hline
 
-4 & Documentación Técnica & Arquitectura del sistema, diagramas UML, especificaciones de API y base de datos & Mes 4 & Electrónico / PDF \\
+5 & Plan de Pruebas & Casos de prueba, scripts de testing y reportes de validación del sistema & Electrónico / PDF \\
 \hline
 
-5 & Plan de Pruebas & Casos de prueba, scripts de testing y reportes de validación del sistema & Mes 3-4 & Electrónico / PDF \\
+6 & Scripts de Instalación & Archivos de configuración automática, instaladores y guías de despliegue & Electrónico / Ejecutables \\
 \hline
 
-6 & Scripts de Instalación & Archivos de configuración automática, instaladores y guías de despliegue & Mes 4 & Electrónico / Ejecutables \\
+7 & Portal Web React & Aplicación web responsive con dashboard administrativo y gestión remota & Web / Aplicación en línea \\
 \hline
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 2: EXPANSIÓN WEB}} \\
+8 & API REST & Servicios web documentados con endpoints para integración y sincronización & Electrónico / Documentación \\
 \hline
 
-7 & Portal Web React & Aplicación web responsive con dashboard administrativo y gestión remota & Mes 7-8 & Web / Aplicación en línea \\
+9 & Documentación API & Especificaciones técnicas, ejemplos de uso y guías de integración para desarrolladores & Web / Portal de documentación \\
 \hline
 
-8 & API REST & Servicios web documentados con endpoints para integración y sincronización & Mes 6-7 & Electrónico / Documentación \\
+10 & E-commerce Integration & Módulo de ventas en línea integrado con inventario físico & Web / Plataforma en línea \\
 \hline
 
-9 & Documentación API & Especificaciones técnicas, ejemplos de uso y guías de integración para desarrolladores & Mes 8 & Web / Portal de documentación \\
+11 & Certificados SSL & Configuración de seguridad, certificados digitales y protocolos de encriptación & Electrónico / Configuración \\
 \hline
 
-10 & E-commerce Integration & Módulo de ventas en línea integrado con inventario físico & Mes 8-9 & Web / Plataforma en línea \\
+12 & App React Native & Aplicación móvil multiplataforma para gestión y monitoreo & Electrónico / Tiendas de apps \\
 \hline
 
-11 & Certificados SSL & Configuración de seguridad, certificados digitales y protocolos de encriptación & Mes 8 & Electrónico / Configuración \\
+13 & Sistema de Notificaciones & Servicio de push notifications integrado con alertas del sistema & Electrónico / Servicio cloud \\
 \hline
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 3: APLICACIONES MÓVILES}} \\
+14 & Analytics Dashboard & Panel de métricas móviles con reportes interactivos y KPIs en tiempo real & Web / Aplicación móvil \\
 \hline
 
-12 & App React Native & Aplicación móvil multiplataforma para gestión y monitoreo & Mes 12-14 & Electrónico / Tiendas de apps \\
+15 & Guías de Publicación & Documentación para publicar en App Store y Google Play con procesos de aprobación & Electrónico / PDF \\
 \hline
 
-13 & Sistema de Notificaciones & Servicio de push notifications integrado con alertas del sistema & Mes 13 & Electrónico / Servicio cloud \\
-\hline
-
-14 & Analytics Dashboard & Panel de métricas móviles con reportes interactivos y KPIs en tiempo real & Mes 14 & Web / Aplicación móvil \\
-\hline
-
-15 & Guías de Publicación & Documentación para publicar en App Store y Google Play con procesos de aprobación & Mes 14 & Electrónico / PDF \\
-\hline
-
-16 & App Cliente (Opcional) & Aplicación para clientes finales con programa de lealtad y pedidos & Mes 15-16 & Electrónico / Tiendas de apps \\
+16 & App Cliente (Opcional) & Aplicación para clientes finales con programa de lealtad y pedidos & Electrónico / Tiendas de apps \\
 \hline
 \end{longtable}
 
@@ -356,33 +351,6 @@ Desarrollar e implementar un sistema integral de punto de venta que automatice y
     \item Análisis avanzado de datos en desarrollo futuro
 \end{itemize}
 
-\section{Criterios de Éxito}
-
-\subsection{Fase 1}
-\begin{itemize}
-    \item Sistema POS operativo al 100\% en un terminal
-    \item Reducción del 50\% en tiempo de procesamiento de ventas
-    \item Zero errores críticos en operaciones de venta
-    \item Capacitación completa del personal en menos de 4 horas
-    \item Generación automática de reportes diarios
-\end{itemize}
-
-\subsection{Fase 2}
-\begin{itemize}
-    \item Portal web accesible 24/7 con 99.9\% uptime
-    \item Integración exitosa con al menos 2 sistemas de pago
-    \item Reducción del 30\% en tiempo de gestión administrativa
-    \item API documentada y funcional para integraciones futuras
-\end{itemize}
-
-\subsection{Fase 3}
-\begin{itemize}
-    \item Aplicaciones móviles con calificación 4+ en tiendas
-    \item Adopción del 70\% de clientes en programa de lealtad
-    \item Incremento del 25\% en ventas a través de canal móvil
-    \item Notificaciones push con tasa de apertura >40\%
-\end{itemize}
-
 \section{Gestión de Riesgos}
 
 \subsection{Riesgos Técnicos}
@@ -428,12 +396,12 @@ La implementación por fases garantiza la continuidad operativa y permite la ada
 
 \vspace{1.5cm}
 
-\begin{tabular}{p{6cm}p{6cm}}
-\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
-\centering Mtra. Patricia Mendoza Crisóstomo & \centering Fecha \\
-\centering Supervisora Académica & \\[1cm]
-\centering\rule{5cm}{0.4pt} & \centering\rule{5cm}{0.4pt} \\[0.5cm]
-\centering Líder del Proyecto & \centering Fecha \\
+\begin{tabular}{>{\centering}p{6cm}>{\centering\arraybackslash}p{6cm}}
+\rule{5cm}{0.4pt} & \rule{5cm}{0.4pt} \\[0.5cm]
+Mtra. Patricia Mendoza Crisóstomo & Fecha \\
+Supervisora Académica & \\[1cm]
+\rule{5cm}{0.4pt} & \rule{5cm}{0.4pt} \\[0.5cm]
+Líder del Proyecto & Fecha \\
 & \\
 \end{tabular}
 \end{center}
