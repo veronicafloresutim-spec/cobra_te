@@ -235,9 +235,6 @@ Cliente Final & Básica & Uso de app móvil, consulta de productos, programa de 
 \hline
 \endhead
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 1: APLICACIÓN DE ESCRITORIO}} \\
-\hline
-
 RF-001 & Sistema de Autenticación & Crítica & El sistema debe permitir autenticación segura mediante correo electrónico y contraseña, con validación de formato, verificación SHA-256, gestión de sesiones y control de intentos fallidos. & Login exitoso con credenciales válidas, bloqueo temporal tras 3 intentos fallidos, sesión activa por 8 horas, logout automático por inactividad \\
 \hline
 
@@ -253,9 +250,6 @@ RF-004 & Gestión de Inventario & Alta & Administración completa del catálogo 
 RF-005 & Sistema de Reportes & Media & Generación automática de reportes operativos por período, productos más vendidos, desempeño por cajero y análisis de ganancias con exportación a PDF/Excel. & Reportes generados en <30 segundos, datos exactos y actualizados, exportación exitosa a múltiples formatos, gráficas claras y legibles \\
 \hline
 
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 2: PORTAL WEB}} \\
-\hline
-
 RF-006 & Dashboard Ejecutivo & Alta & Panel de control web con métricas clave, gráficas en tiempo real, KPIs principales, estado de cajeros conectados y alertas del sistema. & Dashboard carga en <5 segundos, datos actualizados cada 30 segundos, gráficas interactivas, alertas visibles y funcionales, responsive en múltiples dispositivos \\
 \hline
 
@@ -266,9 +260,6 @@ RF-008 & E-commerce Integration & Baja & Plataforma de venta en línea con catá
 \hline
 
 RF-009 & API RESTful & Media & Servicios web documentados con endpoints para productos, ventas, usuarios, reportes e inventario, autenticación JWT y rate limiting. & API responde en <1 segundo, documentación completa en Swagger, autenticación JWT funcional, rate limiting configurado adecuadamente \\
-\hline
-
-\multicolumn{5}{|c|}{\cellcolor{cobraorange!20}\textbf{FASE 3: APLICACIONES MÓVILES}} \\
 \hline
 
 RF-010 & App Gestión Móvil & Media & Aplicación React Native para supervisores con dashboard móvil, notificaciones push, reportes con gráficas y gestión básica de inventario. & App instalada en Android/iOS, notificaciones push funcionales, reportes visibles offline, sincronización automática cuando hay conexión \\
@@ -509,21 +500,21 @@ RF-011 & App Cliente & Baja & CU-001 \\
 \section{Consideraciones de Implementación}
 
 \subsection{Fases de Desarrollo}
-\textbf{Fase 1 (3-4 meses):}
+\textbf{Fase 1:}
 \begin{itemize}
     \item Aplicación de escritorio completa
     \item Base de datos y estructura inicial
     \item Módulos POS, usuarios, productos, reportes básicos
 \end{itemize}
 
-\textbf{Fase 2 (4-6 meses):}
+\textbf{Fase 2:}
 \begin{itemize}
     \item Portal web administrativo con React.js
     \item API REST integrada con backend existente
     \item Dashboard ejecutivo y e-commerce básico
 \end{itemize}
 
-\textbf{Fase 3 (6-8 meses):}
+\textbf{Fase 3:}
 \begin{itemize}
     \item Aplicación React Native multiplataforma
     \item Sistema de notificaciones push
